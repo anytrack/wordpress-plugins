@@ -19,8 +19,8 @@
  * Version:           0.1.0
  * Author:            AnyTrack Inc.
  * Author URI:        https://anytrack.io/
- * License:           MIT
- * License URI:       https://github.com/anytrack/wordpress-plugins/blob/main/anytrack-redirect/LICENSE.txt
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       anytrack-redirect
  * Domain Path:       /languages
  */
