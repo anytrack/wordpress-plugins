@@ -13,9 +13,9 @@
  * @package           AnyTrack_Redirect
  *
  * @wordpress-plugin
- * Plugin Name:       AnyTrack RedirectGenerate safe and nicer offer links with built-in support for the AnyTrack tracker
- * Plugin URI:        https://github.com/anytrack/wordpress-plugins
- * Description:
+ * Plugin Name:       AnyTrack Redirect
+ * Plugin URI:        https://wordpress.org/plugins/anytrack-redirect/
+ * Description:       Generate safe and nicer offer links with built-in support for the AnyTrack tracker
  * Version:           0.1.0
  * Author:            AnyTrack Inc.
  * Author URI:        https://anytrack.io/

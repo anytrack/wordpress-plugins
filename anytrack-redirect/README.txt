@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: moshest
-Donate link: http://anytrack.io/
+Donate link: https://anytrack.io/
 Tags: anytrack, redirect, offer, redirection, links, 302, 301, affiliate
 Requires at least: 3.0.1
 Tested up to: 3.4
