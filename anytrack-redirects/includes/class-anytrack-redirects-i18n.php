@@ -9,8 +9,8 @@
  * @link       https://anytrack.io
  * @since      0.1.0
  *
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/includes
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/includes
  */
 
 /**
@@ -20,10 +20,10 @@
  * so that it is ready for translation.
  *
  * @since      0.1.0
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/includes
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/includes
  */
-class AnyTrack_Redirect_i18n {
+class AnyTrack_Redirects_i18n {
 
 
 	/**
@@ -34,7 +34,7 @@ class AnyTrack_Redirect_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'anytrack-redirect',
+			'anytrack-redirects',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

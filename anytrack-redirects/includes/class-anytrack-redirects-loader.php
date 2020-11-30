@@ -6,8 +6,8 @@
  * @link       https://anytrack.io
  * @since      0.1.0
  *
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/includes
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/includes
  */
 
 /**
@@ -17,10 +17,10 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/includes
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/includes
  */
-class AnyTrack_Redirect_Loader {
+class AnyTrack_Redirects_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

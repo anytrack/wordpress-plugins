@@ -8,8 +8,8 @@
  * @link       https://anytrack.io
  * @since      0.1.0
  *
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/public/partials
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/public/partials
  */
 ?>
 

@@ -1,1 +1,1 @@
-zip anytrack-redirect.zip -r anytrack-redirect
+zip anytrack-redirects.zip -r anytrack-redirects

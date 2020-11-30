@@ -1,3 +1,4 @@
 # AnyTrack.io Wordpress Plugins
 
-- [AnyTrack Redirect](./anytrack-redirect) - Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
+- [AnyTrack Redirects](./anytrack-redirects) - Generate safe and nicer offer links with built-in
+support for the AnyTrack tracker.

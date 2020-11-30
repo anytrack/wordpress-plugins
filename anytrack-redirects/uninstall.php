@@ -22,7 +22,7 @@
  * @link       https://anytrack.io
  * @since      0.1.0
  *
- * @package    AnyTrack_Redirect
+ * @package    AnyTrack_Redirects
  */
 
 // If uninstall not called from WordPress, then exit.

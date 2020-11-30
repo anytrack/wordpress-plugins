@@ -6,8 +6,8 @@
  * @link       https://anytrack.io
  * @since      0.1.0
  *
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/includes
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/includes
  */
 
 /**
@@ -16,10 +16,10 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      0.1.0
- * @package    AnyTrack_Redirect
- * @subpackage AnyTrack_Redirect/includes
+ * @package    AnyTrack_Redirects
+ * @subpackage AnyTrack_Redirects/includes
  */
-class AnyTrack_Redirect_Deactivator {
+class AnyTrack_Redirects_Deactivator {
 
 	/**
 	 * Short Description. (use period)
