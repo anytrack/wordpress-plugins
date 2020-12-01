@@ -1,1 +1,1 @@
-zip anytrack-redirects.zip -r anytrack-redirects
+zip anytrack-affiliate-link-manager.zip -r anytrack-affiliate-link-manager
