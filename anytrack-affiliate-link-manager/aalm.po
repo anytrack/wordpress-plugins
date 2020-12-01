@@ -1,0 +1,1174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-shortcode-content\n"
+"POT-Creation-Date: 2020-11-30 18:15+0200\n"
+"PO-Revision-Date: 2020-11-30 18:16+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: modules/cpt.php:50
+msgid "Links"
+msgstr ""
+
+#: modules/cpt.php:51
+msgid "Link"
+msgstr ""
+
+#: modules/cpt.php:52
+msgid "Add New"
+msgstr "Hinzufügen"
+
+#: modules/cpt.php:53
+#, fuzzy
+#| msgid "Add New"
+msgid "Add New Link"
+msgstr "Hinzufügen"
+
+#: modules/cpt.php:54
+#, fuzzy
+#| msgid "Edit"
+msgid "Edit Link"
+msgstr "Bearbeiten"
+
+#: modules/cpt.php:55
+msgid "New Link"
+msgstr ""
+
+#: modules/cpt.php:56
+msgid "All Links"
+msgstr ""
+
+#: modules/cpt.php:57
+msgid "View Link"
+msgstr ""
+
+#: modules/cpt.php:58
+#, fuzzy
+#| msgid "Search Logging"
+msgid "Search Links"
+msgstr "Suchen"
+
+#: modules/cpt.php:59
+#, fuzzy
+#| msgid "No Categories found."
+msgid "No Links found"
+msgstr "Aucun résultat"
+
+#: modules/cpt.php:60
+#, fuzzy
+#| msgid "No Products found in Trash"
+msgid "No Links found in Trash"
+msgstr "Keine Lebensmittel im Mülleimer gefunden"
+
+#: modules/cpt.php:62
+msgid "Affiliate Links Manager"
+msgstr ""
+
+#: modules/functions.php:71
+msgid "Redirect "
+msgstr ""
+
+#: modules/hooks.php:196
+#, fuzzy
+#| msgid "First Name: "
+msgid "Redirect Name"
+msgstr "이름:"
+
+#: modules/hooks.php:197
+#, fuzzy
+#| msgid "User Data"
+msgid "Data"
+msgstr "Nutzerdaten"
+
+#: modules/hooks.php:198
+msgid "Count"
+msgstr ""
+
+#: modules/hooks.php:199
+#, fuzzy
+#| msgid "Last Name: "
+msgid "Last access"
+msgstr "성:"
+
+#: modules/hooks.php:213
+msgid "Exact match all parameters in any order"
+msgstr ""
+
+#: modules/hooks.php:213
+msgid "Ignore all parameters"
+msgstr ""
+
+#: modules/hooks.php:213
+msgid "Ignore & pass parameters to the target"
+msgstr ""
+
+#: modules/hooks.php:216 modules/hooks.php:227 modules/meta_box.php:103
+msgid "Source URL"
+msgstr ""
+
+#: modules/hooks.php:217 modules/hooks.php:232
+#, fuzzy
+#| msgid "Parameters saved."
+msgid "Query Parameters"
+msgstr ""
+"Deine persönlichen Pläne wurden erfolgreich erstellt. Klicke jetzt auf den "
+"Link <a target=\"_blank\"  href=\"http://www.simple-sixpack.com/"
+"ernaehrungsplan/\">Ernährungsplan</a> oder <a target=\"_blank\" href="
+"\"http://www.simple-sixpack.com/trainingsplan/\">Trainingsplan</a>, um alles "
+"zu erhalten."
+
+#: modules/hooks.php:218 modules/hooks.php:245 modules/meta_box.php:116
+#, fuzzy
+#| msgid "Target"
+msgid "Target URL"
+msgstr "Ziel"
+
+#: modules/hooks.php:223
+msgid "Redirect name"
+msgstr ""
+
+#: modules/hooks.php:250
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: modules/hooks.php:252 modules/settings.php:158
+msgid "Save"
+msgstr "Speichern"
+
+#: modules/hooks.php:253
+msgid "Cancel"
+msgstr "수업 취소하기"
+
+#: modules/hooks.php:288 modules/hooks.php:307
+#, fuzzy
+#| msgid "Actions"
+msgid "All Redirections"
+msgstr "Aktionen"
+
+#: modules/hooks.php:289 modules/hooks.php:308 modules/settings.php:138
+#: modules/settings.php:139
+#, fuzzy
+#| msgid "Settings"
+msgid "Property Settings"
+msgstr "설ㅈ"
+
+#: modules/meta_box.php:94
+msgid "Redirect Parameters"
+msgstr ""
+
+#: modules/settings.php:21
+#, fuzzy
+#| msgid "Settings"
+msgid "Settings saved"
+msgstr "설ㅈ"
+
+#: modules/settings.php:89
+msgid "Settings"
+msgstr "설ㅈ"
+
+#: modules/settings.php:147
+msgid "AnyTrack property ID"
+msgstr ""
+
+#: modules/settings.php:149
+msgid "Please, enter your AnyTrack property ID"
+msgstr ""
+
+#~ msgid "Select Your Timezone"
+#~ msgstr "시간대를 선택해주세요"
+
+#~ msgid "Submit"
+#~ msgstr "다음으로"
+
+#~ msgid "Type: "
+#~ msgstr "선생님: "
+
+#~ msgid "Email: "
+#~ msgstr "이메일: "
+
+#~ msgid "Time: "
+#~ msgstr "수업 시간: "
+
+#~ msgid "Timezone: "
+#~ msgstr "시간대: "
+
+#~ msgid "Time the appointment is created: "
+#~ msgstr "수업을 예약을 만든 시간:"
+
+#~ msgid "Are you sure want to remove appointment ?"
+#~ msgstr ""
+#~ "수업을 취소하시겠습니까? 10시간이 남아 있지 않으면 취소가 되지 않습니다.\n"
+#~ "취소 요청 후에, 웹페이지를 다시 갱생하셔서 결과를 확인하세요."
+
+#~ msgid "Removed"
+#~ msgstr "화면을 새로고침하여 수업이 사라졌나 확인해주세요"
+
+#~ msgid "Please, login to check calendar"
+#~ msgstr "먼저 로그인해주세요"
+
+#~ msgid "No results"
+#~ msgstr "Keine Ergebnisse"
+
+#~ msgid "Product"
+#~ msgstr "Lebensmittel"
+
+#~ msgid "Add New Product"
+#~ msgstr "Neues Rezept/Nahrungsmittel"
+
+#~ msgid "Edit Product"
+#~ msgstr "Bearbeiten"
+
+#~ msgid "New Product"
+#~ msgstr "Neues Lebensmittel"
+
+#~ msgid "All Products"
+#~ msgstr "Alle Lebensmittel"
+
+#~ msgid "View Product"
+#~ msgstr "Lebensmittel ansehen"
+
+#~ msgid "Search Product"
+#~ msgstr "Lebensmittel suchen"
+
+#~ msgid "No Products found"
+#~ msgstr "Kein Lebensmittel gefunden"
+
+#~ msgid "Products"
+#~ msgstr "Lebensmittel"
+
+#~ msgid "Category"
+#~ msgstr "Kategorien"
+
+#~ msgid "Search Category"
+#~ msgstr "Kategorien durchsuchen"
+
+#~ msgid "All Categories"
+#~ msgstr "Alle Kategorien"
+
+#~ msgid "Parent Category"
+#~ msgstr "Hauptkategorie"
+
+#~ msgid "Parent Category:"
+#~ msgstr "Hauptkategorie"
+
+#~ msgid "Edit Category"
+#~ msgstr "Kategorie bearbeiten"
+
+#~ msgid "Update Category"
+#~ msgstr "Kategorie aktualisieren"
+
+#~ msgid "Add New Category"
+#~ msgstr "Neue Kategorie"
+
+#~ msgid "New Category Name"
+#~ msgstr "Kategorie"
+
+#~ msgid "Custom Plan"
+#~ msgstr "Ernährungsplan"
+
+#~ msgid "Add New Custom Plan"
+#~ msgstr "Neuen Plan hinzufügen"
+
+#~ msgid "Edit Custom Plan"
+#~ msgstr "Plan bearbeiten"
+
+#~ msgid "New Custom Plan"
+#~ msgstr "Neuer Plan"
+
+#~ msgid "All Custom Plans"
+#~ msgstr "Alle Pläne"
+
+#~ msgid "View Custom Plan"
+#~ msgstr "Ansehen"
+
+#~ msgid "Search Custom Plan"
+#~ msgstr "Pläne durchsuchen"
+
+#~ msgid "No Custom Plans found"
+#~ msgstr "Keine Pläne gefunden"
+
+#~ msgid "No Custom Plans found in Trash"
+#~ msgstr "Keine Lebensmittel im Mülleimer gefunden"
+
+#~ msgid "Custom Plans"
+#~ msgstr "Ernährungsplan"
+
+#~ msgid "Recipes"
+#~ msgstr "Rezepte"
+
+#~ msgid "Food"
+#~ msgstr "Lebensmittel"
+
+#~ msgid "Most Used"
+#~ msgstr "Häufig verwendete"
+
+#~ msgid "Recomended"
+#~ msgstr "Empfehlungen"
+
+#~ msgid "Favourite"
+#~ msgstr "Favoriten"
+
+#~ msgid "You eat %s portions of:"
+#~ msgstr "%s Portion(en) "
+
+#~ msgid "Learn More..."
+#~ msgstr "Mehr erfahren…"
+
+#~ msgid "Change Meal"
+#~ msgstr "Neuer Vorschlag"
+
+#~ msgid "Unsave"
+#~ msgstr "Löschen"
+
+#~ msgid "Calories:"
+#~ msgstr "Kcal:"
+
+#~ msgid "Protein:"
+#~ msgstr "Eiweiss:"
+
+#~ msgid "Fat:"
+#~ msgstr "Fett:"
+
+#~ msgid "Carbs:"
+#~ msgstr "Kohlenhydrate:"
+
+#~ msgid "Please drink right fluid per day"
+#~ msgstr "Trinke mindestens 2 L Flüssigkeit pro Tag"
+
+#~ msgid "You should drink 2 l Per day"
+#~ msgstr "Wasser oder ungezuckerter Tee"
+
+#~ msgid "1/4 Portion"
+#~ msgstr "1/4 Portion hinzufügen"
+
+#~ msgid "1/3 Portion"
+#~ msgstr "1/3 Portion hinzufügen"
+
+#~ msgid "1/2 Portion"
+#~ msgstr "1/2 Portion hinzufügen"
+
+#~ msgid "1 Portion"
+#~ msgstr "1 Portion hinzufügen"
+
+#~ msgid "2 Portion"
+#~ msgstr "2 Portionen hinzufügen"
+
+#~ msgid "3 Portion"
+#~ msgstr "3 Portionen hinzufügen"
+
+#~ msgid "4 Portion"
+#~ msgstr "4 Portionen hinzufügen"
+
+#~ msgid "5 Portion"
+#~ msgstr "5 Portionen hinzufügen"
+
+#~ msgid " over norm"
+#~ msgstr "Kcal zu viel heute"
+
+#~ msgid " calories left"
+#~ msgstr "Kcal übrig"
+
+#~ msgid "of"
+#~ msgstr "von"
+
+#~ msgid "Carbohydrates:"
+#~ msgstr "Kohlenhydrate:"
+
+#~ msgid "No food Logged"
+#~ msgstr "Was hast du heute gegessen?"
+
+#~ msgid "Weight Lost"
+#~ msgstr "Gewichtsverlust"
+
+#~ msgid "Waist Lost"
+#~ msgstr "Bauchverlust"
+
+#~ msgid "Fat Lost"
+#~ msgstr "Fettverlust"
+
+#~ msgid "Copyright"
+#~ msgstr "Copyright"
+
+#~ msgid "Your plan for "
+#~ msgstr "Dein Ernährungsplan für den"
+
+#~ msgid "Ingredients"
+#~ msgstr "Zutaten für 1 Portion:"
+
+#~ msgid "Nutrion Information"
+#~ msgstr "Nährwerte pro Portion"
+
+#~ msgid "Total Nutrion Information"
+#~ msgstr "Nährstoff Informationen für deinen gesamten Ernährungsplan heute:"
+
+#~ msgid "Please eat %d portions of:"
+#~ msgstr "Bitte iss %d Portion(en) von:"
+
+#~ msgid " (1 Portion)"
+#~ msgstr " (1 Portion)"
+
+#~ msgid "Tagebuch"
+#~ msgstr "Ernährungsplan"
+
+#~ msgid "My saved Products"
+#~ msgstr "Meine Rezepte"
+
+#~ msgid "Meal Plan Offer"
+#~ msgstr "Dein heutiger Ernährungsplan:"
+
+#~ msgid "Print"
+#~ msgstr "Drucken"
+
+#~ msgid "Breakfast"
+#~ msgstr "Frühstück"
+
+#~ msgid "Lunch"
+#~ msgstr "Mittag"
+
+#~ msgid "Snack"
+#~ msgstr "Snack"
+
+#~ msgid "Dinner"
+#~ msgstr "Abendessen"
+
+#~ msgid "Liquid"
+#~ msgstr "Flüssigkeit"
+
+#~ msgid "Time to prepare:"
+#~ msgstr "Zubereitungszeit:"
+
+#~ msgid "Minutes"
+#~ msgstr "Minuten"
+
+#~ msgid "Average Portion Size"
+#~ msgstr "Durchschnittliche Portionsgröße:"
+
+#~ msgid "Nutrition Information per Portion"
+#~ msgstr "Nährwerte pro Portion:"
+
+#~ msgid "Nutrition Information of 100 g"
+#~ msgstr "Nährwerte pro Portion:"
+
+#~ msgid "More"
+#~ msgstr "Kategorie"
+
+#~ msgid "Trainingsplan"
+#~ msgstr "Trainingsplan"
+
+#~ msgid "Monthly Ration"
+#~ msgstr "Monat"
+
+#~ msgid "Date Range"
+#~ msgstr "Zeitreihe"
+
+#~ msgid "From"
+#~ msgstr "Von"
+
+#~ msgid "to"
+#~ msgstr "Bis"
+
+#~ msgid "Go"
+#~ msgstr "Los"
+
+#~ msgid "Calories"
+#~ msgstr "Kcal:"
+
+#~ msgid "Protein"
+#~ msgstr "Eiweiss"
+
+#~ msgid "Carbs"
+#~ msgstr "Kohlenhydrate"
+
+#~ msgid "Fat"
+#~ msgstr "Fett"
+
+#~ msgid "Product Type"
+#~ msgstr "Produkt Typ"
+
+#~ msgid "Time to prepare"
+#~ msgstr "Zubereitungszeit:"
+
+#~ msgid "Is Vegetarian"
+#~ msgstr "Isst du Fleisch?"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nein"
+
+#~ msgid ""
+#~ "Your age is %a%, your height is %h% cm, weight goal is %w_g% and weist "
+#~ "goal is %ws_g%. Are sure to save this data?"
+#~ msgstr ""
+#~ "Bitte kontrolliere jetzt deine Daten und klicke dann auf Ok: Alter: %a%, "
+#~ "Groesse: %h% cm, Ziel Körpergewicht: %w_g%, Ziel Bauchumfang: %ws_g%"
+
+#~ msgid "Gewicht (kg)"
+#~ msgstr "Körpergewicht (in kg)"
+
+#~ msgid "Weight Goal (kg)"
+#~ msgstr "Ziel Gewicht?"
+
+#~ msgid "Grose (cm)"
+#~ msgstr "Körpergröße (in cm)"
+
+#~ msgid "Waist Circumference (in cm)"
+#~ msgstr "Bauchumfang (in cm)"
+
+#~ msgid "Waist Circumference Goal (in cm)"
+#~ msgstr "Ziel-Bauchumfang"
+
+#~ msgid "Date of birth "
+#~ msgstr "Geburtsdatum"
+
+#~ msgid "Alter "
+#~ msgstr "Alter"
+
+#~ msgid "Sex"
+#~ msgstr "Geschlecht"
+
+#~ msgid "Mannlich"
+#~ msgstr "Mann"
+
+#~ msgid "Weiblich"
+#~ msgstr "Frau"
+
+#~ msgid "Activity"
+#~ msgstr "Aktivität"
+
+#~ msgid "Wahle dein Aktivitatslevel"
+#~ msgstr "Wähle dein Aktivitätslevel"
+
+#~ msgid "sehr leicht"
+#~ msgstr "sehr leicht"
+
+#~ msgid "leicht"
+#~ msgstr "leicht"
+
+#~ msgid "normal"
+#~ msgstr "normal"
+
+#~ msgid "aktiv"
+#~ msgstr "aktiv"
+
+#~ msgid "sehr aktiv"
+#~ msgstr "sehr aktiv"
+
+#~ msgid "Welches Ziel hast du?"
+#~ msgstr "Welches Ziel hast du?"
+
+#~ msgid "Flat"
+#~ msgstr "Abnehmen"
+
+#~ msgid "Sixpack"
+#~ msgstr "Sixpack"
+
+#~ msgid "Muscle Building"
+#~ msgstr "Muskelaufbau"
+
+#~ msgid "Maintain"
+#~ msgstr "Halten"
+
+#~ msgid "Isst du Fleisch?"
+#~ msgstr "Isst du Fleisch?"
+
+#~ msgid "Drop all data"
+#~ msgstr "Alle Daten zurücksetzen"
+
+#~ msgid "Are you sure? All data will be removed"
+#~ msgstr "Bist du dir sicher? Alle Daten werden gelöscht!"
+
+#~ msgid "Reset Data"
+#~ msgstr "Alle Daten zurücksetzen"
+
+#~ msgid "Reset User Plans"
+#~ msgstr "Pläne zurücksetzen"
+
+#~ msgid "Reset Body Log"
+#~ msgstr "Körperdaten zurücksetzen"
+
+#~ msgid "Current Calories"
+#~ msgstr "Kcal:"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Weight"
+#~ msgstr "Körpergewicht (in kg)"
+
+#~ msgid "Waist Circumference"
+#~ msgstr "Bauchumfang (in cm)"
+
+#~ msgid "Unknown"
+#~ msgstr "Unbekannt"
+
+#~ msgid "Select"
+#~ msgstr "Auswählen"
+
+#~ msgid "Add Recipe"
+#~ msgstr "Rezepte hinzufügen"
+
+#~ msgid "Edit Recipe"
+#~ msgstr "Rezept bearbeiten"
+
+#~ msgid "Recipe Updated"
+#~ msgstr "Rezepte geändert"
+
+#~ msgid "Recipe Added"
+#~ msgstr "Rezepte hinzugefügt"
+
+#~ msgid "Recipe Title"
+#~ msgstr "Rezept Titel"
+
+#~ msgid "Average Portion Size (g)"
+#~ msgstr "Durchschnittliche Portionsgröße (g)"
+
+#~ msgid "Your recipes"
+#~ msgstr "Deine Rezepte"
+
+#~ msgid "Recipe"
+#~ msgstr "Rezepte"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Bist du dir sicher?"
+
+#~ msgid "Delete"
+#~ msgstr "Löschen"
+
+#~ msgid "Sorry, you need to be logged in."
+#~ msgstr "Du musst eingeloggt sein"
+
+#~ msgid "Foods"
+#~ msgstr "Nahrungsmittel"
+
+#~ msgid "Saved Recipes"
+#~ msgstr "gespeicherte Rezepte"
+
+#~ msgid "Load More..."
+#~ msgstr "Mehr laden…"
+
+#~ msgid "Categories"
+#~ msgstr "Alle Kategorien"
+
+#~ msgid "Show saved meals and foods"
+#~ msgstr "Meine gespeicherten Rezepte und Nahrungsmittel"
+
+#~ msgid "Search..."
+#~ msgstr "Suche Nahrungsmittel oder Rezepte…"
+
+#~ msgid "Search"
+#~ msgstr "Suchen"
+
+#~ msgid "Data added."
+#~ msgstr "Daten erfolgreich gespeichert"
+
+#~ msgid "Great! You reached goal! You an change goals now!"
+#~ msgstr ""
+#~ "Yeah… Gratulation! Du hast dein Ziel erreicht. Jetzt nicht nachlässig "
+#~ "werden und gleich ein neues Ziel setzen:"
+
+#~ msgid "Weight Goal"
+#~ msgstr "Körpergewicht"
+
+#~ msgid " You have "
+#~ msgstr "Nur noch "
+
+#~ msgid " kg to go"
+#~ msgstr " kg abnehmen"
+
+#~ msgid "You reached Goal!"
+#~ msgstr ""
+#~ "Yeah… Gratulation! Du hast dein Ziel erreicht. Jetzt nicht nachlässig "
+#~ "werden und gleich ein neues Ziel setzen:"
+
+#~ msgid "Weist Goal"
+#~ msgstr "Bauchumfang"
+
+#~ msgid " cm to go"
+#~ msgstr " cm verlieren"
+
+#~ msgid "Please, enter data"
+#~ msgstr "Bitte trage deine Daten ein"
+
+#~ msgid "Waist Goal Circumference (in cm)"
+#~ msgstr "Ziel-Bauchumfang"
+
+#~ msgid "sehr leicht _"
+#~ msgstr "sehr leicht (Beispiel: Bettlägerigkeit, keine Bewegung)"
+
+#~ msgid "leicht _"
+#~ msgstr "leicht (Beispiel: Büroarbeit, sehr wenig Bewegung)"
+
+#~ msgid "normal _"
+#~ msgstr "normal (Studenten, Kraftfahrer, kein Sport)"
+
+#~ msgid "aktiv _"
+#~ msgstr "aktiv (Beispiel: Kellner, Verkäufer, regelmäßig Sport)"
+
+#~ msgid "sehr aktiv _"
+#~ msgstr "sehr aktiv (Beispiel: Bauarbeiter, täglich Sport)"
+
+#~ msgid "Help"
+#~ msgstr "Hilfe"
+
+#~ msgid "Neu berechnen"
+#~ msgstr "Berechnen"
+
+#~ msgid "Go to your Diary"
+#~ msgstr "Zum Ernährungsplan"
+
+#~ msgid ""
+#~ "You are unter 18. We recommend starting a diet with 18. If you are sure "
+#~ "to start, please click ok"
+#~ msgstr ""
+#~ "Du bist unter 18 Jahre alt. Wir empfehlen dir erst ab 18 Jahren eine Diät "
+#~ "und mit dem Krafttraining zu starten. Hole dir bitte das Einverständnis "
+#~ "deiner Eltern und das Ok deines Artztes, bevor du startest. Klicke auf "
+#~ "Ok, wenn du diesen Hinweis gelesen hast und einverstanden bist:"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgid "Extra Food"
+#~ msgstr "Extra"
+
+#~ msgid "Personal Food"
+#~ msgstr "Persönliche Nahrungsmittel"
+
+#~ msgid "Alle Kategorien"
+#~ msgstr "Alle Kategorien"
+
+#~ msgid "Product Data"
+#~ msgstr "Produkt Daten"
+
+#, fuzzy
+#~| msgid "Protein"
+#~ msgid "Protion"
+#~ msgstr "Eiweiss"
+
+#, fuzzy
+#~| msgid "Pre Name"
+#~ msgid "Name"
+#~ msgstr "Titre"
+
+#~ msgid "Kcal"
+#~ msgstr "Kcal"
+
+#~ msgid "Select Product"
+#~ msgstr "Lebensmittel auswählen"
+
+#~ msgid "Comments"
+#~ msgstr "Kommentare:"
+
+#~ msgid "Reciepe"
+#~ msgstr "Rezepte"
+
+#~ msgid "Is Vegetarian?"
+#~ msgstr "Vegetarisch?"
+
+#~ msgid "Protein (g)"
+#~ msgstr "Eiweiss (g)"
+
+#~ msgid "Carbs (g)"
+#~ msgstr "Kohlenhydrate (g)"
+
+#~ msgid "Fat (g)"
+#~ msgstr "Fett (g)"
+
+#~ msgid "Time to prepare (min)"
+#~ msgstr "Zubereitungszeit (min):"
+
+#~ msgid "Settings saved successfully"
+#~ msgstr "Einstellungen erfolgreich gespeichert"
+
+#~ msgid "Select Breakfast Category"
+#~ msgstr "Wähle Kategorie Frühstück"
+
+#~ msgid "(For Import Only)"
+#~ msgstr "Nur für Import"
+
+#~ msgid "Select Category"
+#~ msgstr "Wähle Kategorie"
+
+#~ msgid "Select Lunch Category"
+#~ msgstr "Wähle Kategorie Mittagessen"
+
+#~ msgid "Select Snack Category"
+#~ msgstr "Wähle Kategorie Snack"
+
+#~ msgid "Select Dinner Category"
+#~ msgstr "Wähle Kategorie Abendessen"
+
+#~ msgid "Message A"
+#~ msgstr "Nachricht A (Gewicht, Bauch, Fett runter)"
+
+#~ msgid "Message B"
+#~ msgstr "Nachricht B (Fett und Bauch runter, Gewicht gleich)"
+
+#~ msgid "Message C"
+#~ msgstr "Nachricht C (nichts passiert)"
+
+#~ msgid "Message D"
+#~ msgstr "Nachricht D (Bauch und Fett runter, Gewicht hoch)"
+
+#~ msgid "Message E"
+#~ msgstr "Nachricht E (Bauch, Fett, Gewicht hoch)"
+
+#~ msgid "Message F"
+#~ msgstr "Nachricht F (Gewicht runter, Fett und Bauch gleich)"
+
+#~ msgid "Liquid Post ID"
+#~ msgstr "Flüssigkeit"
+
+#, fuzzy
+#~| msgid ""
+#~| "Please put in your data <a href=\"%s\">here</a> to get your meal plan"
+#~ msgid ""
+#~ "Please put in your actual data <a href=\"%s\">here</a> to get your new "
+#~ "meal plans"
+#~ msgstr ""
+#~ "Bitte trage <a href=\"%s\">hier</a> deine Daten ein, um deinen Plan zu "
+#~ "erhalten."
+
+#~ msgid ""
+#~ "Please put in your data <a href=\"%s\">here</a> to get your meal plan"
+#~ msgstr ""
+#~ "Bitte trage <a href=\"%s\">hier</a> deine Daten ein, um deinen Plan zu "
+#~ "erhalten."
+
+#, fuzzy
+#~| msgid "Help"
+#~ msgid "Help Site"
+#~ msgstr "Hilfe"
+
+#, fuzzy
+#~| msgid " times eaten"
+#~ msgid "Meine Daten"
+#~ msgstr " Mal gegessen"
+
+#~ msgid "Top Weight Log"
+#~ msgstr "Körpergewicht Verlust Top 10 Liste"
+
+#~ msgid "Top Waist Log"
+#~ msgstr "Bauchumfang Verlust Top 10 Liste"
+
+#~ msgid "Top Fat Log"
+#~ msgstr "Körperfettverlust Top 10 Liste"
+
+#~ msgid ""
+#~ "There are no saved recipes and foods. Just save one from <a href=\"http://"
+#~ "www.simple-sixpack.com/alle-kategorien/\">this</a> "
+#~ msgstr ""
+#~ "Du hast noch keine Rezepte oder Lebensmittel gespeichert. <a href="
+#~ "\"http://www.simple-sixpack.com/alle-kategorien/\">Klicke hier</a>, um "
+#~ "alle Rezepte und Lebensmittel zu entdecken und deine Lieblingsprodute zu "
+#~ "speichern."
+
+#~ msgid ""
+#~ "There are no goal set up. Please, select goal <a href=\"http://www.simple-"
+#~ "sixpack.com/daten/\">here</a>."
+#~ msgstr ""
+#~ "Du hast noch keine Ziele festgelegt. <a href=\"http://www.simple-sixpack."
+#~ "com/daten/\">Klicke bitte hier</a>, um deine Ziele einzutragen."
+
+#~ msgid ""
+#~ "Great! You reached goal! You can <a href=\"%s\">change</a> goals now!"
+#~ msgstr ""
+#~ "Herzlichen Glückwunsch! Du hast dein Ziel erreicht. Jetzt nicht "
+#~ "nachlässig werden und gleich <a href=\"%s\">ein neues Ziel setzen (klicke "
+#~ "hier)</a>."
+
+#~ msgid "Body Fat (%)"
+#~ msgstr "Körperfettanteil (%)"
+
+#~ msgid "Notes"
+#~ msgstr "Notizen"
+
+#~ msgid "Body Fat"
+#~ msgstr "Körperfett (optional)"
+
+#~ msgid "Do you know your goal?"
+#~ msgstr "Kennst du deine Ziele?"
+
+#~ msgid "Fat Goal (%)"
+#~ msgstr "Ziel-Körperfett"
+
+#~ msgid "Please choose goal"
+#~ msgstr "Bitte wähle dein Ziel…"
+
+#, fuzzy
+#~| msgid "All Categories"
+#~ msgid "Meals Categories"
+#~ msgstr "Alle Kategorien"
+
+#~ msgid "Do you want to train?"
+#~ msgstr "Möchtest du trainieren?"
+
+#~ msgid "Workout Place"
+#~ msgstr "Wo möchtest du trainieren?"
+
+#~ msgid "Home"
+#~ msgstr "Zuhause"
+
+#~ msgid "Gym"
+#~ msgstr "Fitness Studio"
+
+#~ msgid "Experience"
+#~ msgstr "Fitnesserfahrungen"
+
+#~ msgid "No Experience"
+#~ msgstr "Keine Erfahrung"
+
+#~ msgid "Beginner"
+#~ msgstr "Anfänger"
+
+#~ msgid "1-2 worksouts per week"
+#~ msgstr "1-2 Mal pro Woche"
+
+#~ msgid "3-4 worksouts per week"
+#~ msgstr "3-4 Mal pro Woche"
+
+#~ msgid "5-6 worksouts per week"
+#~ msgstr "5-6 Mal pro Woche"
+
+#~ msgid "Anwendung"
+#~ msgstr "Anwendung"
+
+#~ msgid "Save Plan"
+#~ msgstr "Fixieren"
+
+#~ msgid "Unsave Plan"
+#~ msgstr "Löschen"
+
+#~ msgid "Undo Plan"
+#~ msgstr "Löschen"
+
+#~ msgid "Create Plan"
+#~ msgstr "Erstellen"
+
+#~ msgid "Choose food"
+#~ msgstr "Bitte wählen…"
+
+#~ msgid "Related Posts Widget"
+#~ msgstr "Ähnlich"
+
+#~ msgid "New title"
+#~ msgstr "Neuer Titel"
+
+#~ msgid "Title:"
+#~ msgstr "Titel"
+
+#~ msgid "Your age is %a%, your height is %h% cm, are sure to save this data?"
+#~ msgstr ""
+#~ "Klicke auf OK, wenn deine Daten richtig sind: Alter: %a% und Groesse: %h% "
+#~ "cm ?"
+
+#~ msgid "Move Order"
+#~ msgstr "Devis Ellipsebox"
+
+#~ msgid "Add New Move Order"
+#~ msgstr "Ajouter un devis"
+
+#~ msgid "Edit Move Order"
+#~ msgstr "Modifier un devis"
+
+#~ msgid "New Move Order"
+#~ msgstr "Nouveau devis"
+
+#~ msgid "All Move Orders"
+#~ msgstr "Tous les devis"
+
+#~ msgid "View Move Order"
+#~ msgstr "Voir les devis"
+
+#~ msgid "Search Move Order"
+#~ msgstr "Rechercher un devis"
+
+#~ msgid "Move Orders"
+#~ msgstr "Devis Ellipsebox"
+
+#~ msgid "Furniture"
+#~ msgstr "Catégorie"
+
+#~ msgid "Add New Furniture"
+#~ msgstr "Ajouter une catégorie"
+
+#~ msgid "Edit Furniture"
+#~ msgstr "Modifier"
+
+#~ msgid "All Furniture"
+#~ msgstr "Toutes"
+
+#~ msgid "View Furniture"
+#~ msgstr "Voir"
+
+#~ msgid "No Furniture found"
+#~ msgstr "Aucun résultat"
+
+#~ msgid "No Furniture found in Trash"
+#~ msgstr "Aucun résultat"
+
+#~ msgid "Popular Categories"
+#~ msgstr "Catégories populaires"
+
+#~ msgid "Separate Categories with commas"
+#~ msgstr "Séparer les catégories par une virgule"
+
+#~ msgid "Add or remove Categories"
+#~ msgstr "Ajouter ou supprimer une catégorie"
+
+#~ msgid "Choose from the most used Categories"
+#~ msgstr "Choisir parmi les catégories les plus utilisées"
+
+#~ msgid "Surname"
+#~ msgstr "Nom"
+
+#~ msgid "Phone"
+#~ msgstr "Téléphone"
+
+#~ msgid "Address"
+#~ msgstr "Adresse"
+
+#~ msgid "City"
+#~ msgstr "Commune"
+
+#~ msgid "Stage"
+#~ msgstr "Etage"
+
+#~ msgid "Ascenseur"
+#~ msgstr "Ascenseur"
+
+#~ msgid "Packed"
+#~ msgstr "Vos affaires seront-elle déjà empaquetées et prête à être emportées"
+
+#~ msgid "Size (m<sup>3</sup>)"
+#~ msgstr "Volume à déménager (m<sup>3</sup>)"
+
+#~ msgid "Departure Address"
+#~ msgstr "Adresse de départ"
+
+#~ msgid "Arrive Address"
+#~ msgstr "Adresse d’arrivée"
+
+#~ msgid "Transfer"
+#~ msgstr "Déménagement"
+
+#~ msgid "Items Info"
+#~ msgstr "Liste des produits"
+
+#~ msgid "Additional Info"
+#~ msgstr "Informations complémentaires"
+
+#~ msgid "Item Size"
+#~ msgstr "Volume à déménager"
+
+#~ msgid "New Order Recieved"
+#~ msgstr "Nouveau devis reçu"
+
+#~ msgid "Your request was created."
+#~ msgstr "Votre demande de devis a bien été envoyé."
+
+#~ msgid "Mr"
+#~ msgstr "Mr"
+
+#~ msgid "Mrs"
+#~ msgstr "Mrs"
+
+#~ msgid "Ms"
+#~ msgstr "Mme"
+
+#~ msgid "Appartement"
+#~ msgstr "Appartement"
+
+#~ msgid "Maison"
+#~ msgstr "Maison"
+
+#~ msgid "Local Commercial"
+#~ msgstr "Local Commercial"
+
+#~ msgid "Size"
+#~ msgstr "Volume"
+
+#~ msgid "Send Request"
+#~ msgstr "Envoyer la demande de devis"
+
+#~ msgid "Items List"
+#~ msgstr "VOTRE LISTE"
+
+#~ msgid "Size of items"
+#~ msgstr "Volume de la liste"
+
+#~ msgid "Content Block"
+#~ msgstr "Bloc Personnalisé"
+
+#~ msgid "Edit Content Block"
+#~ msgstr "Modifier"
+
+#~ msgid "New Content Block"
+#~ msgstr "Nouveau Bloc"
+
+#~ msgid "All Content Blocks"
+#~ msgstr "Tous les blocs personnalisés"
+
+#~ msgid "View Content Block"
+#~ msgstr "Voir le bloc personnalisés"
+
+#~ msgid "Search Content Block"
+#~ msgstr "Rechercher"
+
+#~ msgid "Content Title"
+#~ msgstr "Titre"
+
+#~ msgid "Shortcode"
+#~ msgstr "Shortcode"
+
+#~ msgid "Custom Block Settings"
+#~ msgstr "Options du bloc personalisé"
+
+#~ msgid "Custom Block Exception"
+#~ msgstr "Exclure les blocs personnalisés"
+
+#~ msgid "Do not add custom blocks on this post"
+#~ msgstr "Ne pas afficher les blocs personnalisés sur cette page "
+
+#~ msgid "Shortcode To Use"
+#~ msgstr "Shortcode utilisable"
+
+#~ msgid "Block Position"
+#~ msgstr "Position du bloc"
+
+#~ msgid "Top"
+#~ msgstr "Au début"
+
+#~ msgid "Middle"
+#~ msgstr "Au milieu"
+
+#~ msgid "Bottom"
+#~ msgstr "A la fin"
+
+#~ msgid "Tags"
+#~ msgstr "Tags"
+
+#~ msgid "Add or remove tags"
+#~ msgstr "Ajouter ou supprimer une catégorie"
+
+#~ msgid "Add New Tag"
+#~ msgstr "Ajouter"
+
+#~ msgid "Add"
+#~ msgstr "Ajouter"
+
+#~ msgid "Separate tags with commas"
+#~ msgstr "Séparer les catégories par une virgule"
+
+#~ msgid "Choose from the most used tags"
+#~ msgstr "Choisir parmi les catégories les plus utilisées"
