@@ -1,0 +1,37 @@
+.tw-bs input[type=checkbox] {
+	width:15px !important;
+	height:15px !important;
+}
+.tw-bs input[type=radio]{
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 10px !important;
+}
+.image_preview{
+		
+	overflow: hidden;
+}
+.image_preview img{
+	width:150px;
+	float:left;
+	margin-right:10px;
+}
+.big_loader{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	background-image: url(loader.gif);
+	background-color:rgba(255,255,255,0.5);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	z-index:1000000;
+	
+}
+.tw-bs4 nav ol.breadcrumb{
+	margin-left:0px;
+}
+.tw-bs4 .breadcrumb-item + .breadcrumb-item::before {
+    content: "|" !important;
+}
