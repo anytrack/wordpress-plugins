@@ -12,7 +12,7 @@ function wcr_gnerate_palceholder(){
 				Redirect 41726 is locked				</span>
 			</div>
 			</th><td class="title column-title has-row-actions column-primary page-title" data-colname="Redirect Name"><div class="locked-info"><span class="locked-avatar"></span> <span class="locked-text"></span></div>
-<strong><a class="row-title" href="http://localhost/wordpress/wp-admin/post.php?post=41726&amp;action=edit" aria-label="Redirect 41726 (Edit)">Redirect 41726</a></strong>
+<strong><a class="row-title" href="%url%post.php?post=41726&amp;action=edit" aria-label="Redirect 41726 (Edit)">Redirect 41726</a></strong>
 
 <div class="hidden" id="inline_41726">
 	<div class="post_title">Redirect 41726</div><div class="post_name">41726</div>
@@ -26,7 +26,7 @@ function wcr_gnerate_palceholder(){
 	<div class="hh">14</div>
 	<div class="mn">38</div>
 	<div class="ss">13</div>
-	<div class="post_password"></div><div class="page_template">default</div><div class="sticky"></div></div><div class="row-actions"><span class="edit"><a href="http://localhost/wordpress/wp-admin/post.php?post=41726&amp;action=edit" aria-label="Edit Redirect 41726">Edit</a> | </span><span class="inline hide-if-no-js"><button type="button" class="button-link editinline" aria-label="Quick edit Redirect 41726 inline" aria-expanded="false">Quick&nbsp;Edit</button> | </span><span class="trash"><a href="%delete%" class="submitdelete" aria-label="Move Redirect 41726 to the Trash">Trash</a></span></div><button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button></td><td class="data column-data" data-colname="Data"><div class="params_container edit_big_41726  tw-bs4">
+	<div class="post_password"></div><div class="page_template">default</div><div class="sticky"></div></div><div class="row-actions"><span class="edit"><a href="%url%post.php?post=41726&amp;action=edit" aria-label="Edit Redirect 41726">Edit</a> | </span><span class="inline hide-if-no-js"><button type="button" class="button-link editinline" aria-label="Quick edit Redirect 41726 inline" aria-expanded="false">Quick&nbsp;Edit</button> | </span><span class="trash"><a href="%delete%" class="submitdelete" aria-label="Move Redirect 41726 to the Trash">Trash</a></span></div><button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button></td><td class="data column-data" data-colname="Data"><div class="params_container edit_big_41726  tw-bs4">
 						<div class=""><b>Source URL:</b> <span class="place_source_url"></span></div>
 						<!-- <div class=""><b>Query Parameters:</b> <span class="place_query_params"></span></div> -->
 						<div class=""><b>Target URL:</b> <span class="place_target_url"></span></div><br>
@@ -71,7 +71,7 @@ function wcr_gnerate_palceholder(){
 		'post_title' => __('Redirect ', $locale ).' '.$new_id
 	]);
 	$new_content = str_replace( '41726', $new_id, $data_block );
-	$new_content = str_replace( 'http://localhost/wordpress/wp-admin/', admin_url(), $new_content );
+	$new_content = str_replace( '%url%', admin_url(), $new_content );
  
 	$url = admin_url('post.php?post='.$new_id.'&action=trash&custom_delete=1');
 	$delete_link = wp_nonce_url( $url );
