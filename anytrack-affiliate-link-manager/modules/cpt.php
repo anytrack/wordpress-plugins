@@ -1,6 +1,6 @@
 <?php
-if( !class_exists('vooCPT') ){
-	class vooCPT{
+ 
+	class anytrackCPT{
 		
 		var $parameters;
 		var $post_type;
@@ -18,11 +18,11 @@ if( !class_exists('vooCPT') ){
 			}
  
 	}
-}
+ 
 
 
-if( !class_exists('vooTax') ){
-	class vooTax{
+ 
+	class anytrackTax{
 		
 		var $parameters;
 		var $post_type;
@@ -43,7 +43,7 @@ if( !class_exists('vooTax') ){
 		}
 		 
 	}
-}
+ 
 
 
 $labels = array(
@@ -53,13 +53,13 @@ $labels = array(
     'add_new_item' => __('Add New Link', $this->locale),
     'edit_item' => __('Edit Link', $this->locale),
     'new_item' => __('New Link', $this->locale),
-    'all_items' => __('All Links', $this->locale),
+    'all_items' => __('Affiliate Links Manager', $this->locale),
     'view_item' => __('View Link', $this->locale),
     'search_items' => __('Search Links', $this->locale),
     'not_found' =>  __('No Links found', $this->locale),
     'not_found_in_trash' => __('No Links found in Trash', $this->locale), 
     'parent_item_colon' => '',
-    'menu_name' => __('Affiliate Links Manager', $this->locale)
+    'menu_name' => __('AnyTrack Links', $this->locale)
 
   );
   $args = array(
@@ -78,7 +78,7 @@ $labels = array(
   ); 
 
  
-$new_pt = new vooCPT( $args, 'custom_redirect' );
+$new_pt = new anytrackCPT( $args, 'custom_redirect' );
 
 
 
