@@ -13,9 +13,13 @@ class aalmSettingsClassCar{
 		if( isset($_POST[$this->setttings_prefix.'save_settings_field']) ){
 			if(  wp_verify_nonce($_POST[$this->setttings_prefix.'save_settings_field'], $this->setttings_prefix.'save_settings_action') ){
 				$options = array();
+
+				$options['property_id'] = sanitize_text_field( $_POST['property_id'] );
+				/*
 				foreach( $_POST as $key=>$value ){
 					$options[$key] = sanitize_text_field( $value );
 				}
+				*/
 				update_option( $this->setttings_prefix.'_options', $options );
 				
 				$this->message = '<div class="alert alert-success">'.__('Settings saved', $this->setttings_prefix ).'</div>';
