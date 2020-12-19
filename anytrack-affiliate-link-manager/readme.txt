@@ -1,39 +1,139 @@
-=== AnyTrack Affiliate Link Manager ===
-Contributors: moshest
-Donate link: https://anytrack.io/
-Tags: anytrack, redirect, offer, redirection, links, 302, 301, affiliate
-Requires at least: 4.7
-Tested up to: 5.6
-Stable tag: 4.3
-Requires PHP: 7.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+=== AnyTrack Affiliate Link Manager ===	=== AnyTrack Affiliate Link Manager ===
+Contributors: moshest	Contributors: moshest
+Donate link: https://anytrack.io/	Donate link: https://anytrack.io/
+Tags: anytrack, redirect, offer, redirection, links, 302, 301, affiliate	Tags: anytrack, redirect, offer, redirection, links, 302, 301, affiliate
+Requires at least: 4.7	Requires at least: 4.7
+Tested up to: 5.6	Tested up to: 5.6
+Stable tag: 4.3	Stable tag: 4.3
+Requires PHP: 7.0	Requires PHP: 7.0
+License: GPLv2 or later	License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
 
-== Description ==
+AnyTrack is a conversion data platform that enables performance marketers to track, and sync	Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
+conversions from affiliate networks, eCommerce platforms, CRM and API's, with Google Analytics,	
+Facebook Conversion API, Taboola, Bing and Outbrain.	
 
-Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
 
-== Frequently Asked Questions ==
+== Description ==	== Description ==
 
-= Do I must have an AnyTrack account in order to use this plugin? =
 
-No. You can use the the plugin even without an active AnyTrack account, but feel welcome to
-[sign-up](https://dashboard.anytrack.io/sign-up?utm_source=wordpress&utm_campaign=anytrack-redirects&utm_content=readme-signup-link).
-It's free!
+= The AnyTrack Affiliate Link Manager =	Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
 
-== Screenshots ==
+The AnyTrack Affiliate Link Manager plugin helps you create, track, manage and share any affiliate links on and off your site, using your own domain name, link structure and path.	
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is stored in the /assets directory.
-2. This is the second screen shot
+When you use the Affiliate Link Plugin alongside the AnyTrack Tracking TAG, your links will be automatically tagged with `subid` parameters and tracking data which will enable you to instantly track and sync your affiliate conversions and sales with Google Analytics, Facebook Conversion API, Bing, Taboola, Outbrain and your favorite marketing tools.	
 
-== Upgrade Notice ==
+**Note**: As opposed to traditional link tracking plugins or URL shortners, the AnyTrack link Manager Plugin allows you to fully track and sync conversions and sales with your Google Analytics, and other pixels.	
 
-= 0.1 =
-Initial version.
+= The Challenge: =	
 
-== Changelog ==
+As a blogger or PPC marketer monetizing your site with affiliate offers, your ultimate goal should be to understand how your audience engages with your content, and eventually which content triggers revenues. And since, you can't place your Google Analytics code on your affiliate networks or merchant offers, you can never get the full picture.	
 
-= 0.1 =
+Using AnyTrack, you can now easily close the loop between your Google Analytics, website and the affiliate networks you promote, and finally see the true value of your content.	
+
+= Popular use cases: =	
+
+- Comparison websites	
+- Coupon websites	
+- Ecommerce Websites	
+- Lead Generation websites	
+- Bloggers, review sites, niche websites.	
+
+= Features =	
+
+- Create redirect URLs that redirect to any link.	
+- Create links according to the link structure of your choice.	
+- Automatically pass query string parameters to destination URLs.	
+- Set and Load the Tracking TAG in the `<head>` of your site.	
+- AutoTag affiliate links with `subid` parameters	
+- AutoTrack outbound link clicks to analytics and pixels.	
+
+= Affiliate Networks integrations =	
+
+- Partnerize	
+- CJ Affiliates	
+- Rakuten	
+- TradeDoubler	
+- Maxbounty	
+- ClickBank	
+- TimeOne	
+- AWIN	
+- FlexOffers	
+- Impact (Formerly known as Impact Radius)	
+- And more	
+
+= Affiliate Software Integrations =	
+
+- Tune (formerly known as Hasoffers)	
+- Cake	
+- Affise	
+- Hitpath	
+- CellXpert	
+- EverFlow	
+
+= Analytics Integrations =	
+
+AnyTrack AutoTrack onsite events such as outbound clicks and form submissions to your analytics accounts, and sends Affiliate Conversions through serer side API integration to your analytics. (no code required).	
+
+- Google Analytics	
+- Facebook Pixel	
+
+= Ad Networks integrations =	
+
+AnyTrack is integrated with ad networks pixels and API so that all engagements events and conversions from affiliate networks can be fully synced and in real-time with your ad campaigns, providing you a complete and accurate return on ad spent.	
+
+- Google Ads (formerly known as AdWords)	
+- Facebook Ads	
+- Taboola	
+- Outbrain	
+- Microsoft Advertising (formerly known as Bing Ads)	
+
+The AnyTrack Affiliate Links Manager enables you to easily create, and manage your affiliate links in a central interface.	
+
+
+== Frequently Asked Questions ==	== Frequently Asked Questions ==
+
+
+@@ -96,32 +23,10 @@ No. You can use the the plugin even without an active AnyTrack account, but feel
+[sign-up](https://dashboard.anytrack.io/sign-up?utm_source=wordpress&utm_campaign=anytrack-redirects&utm_content=readme-signup-link).	[sign-up](https://dashboard.anytrack.io/sign-up?utm_source=wordpress&utm_campaign=anytrack-redirects&utm_content=readme-signup-link).
+It's free!	It's free!
+
+
+= How can I pass query parameters to my links?  =	
+
+All query parameters will pass automatically to your links. If you links already have some	
+existing parameters, it will append those on the end of your link.	
+
+= Can I pass click ids/sub ids from my website links? =	
+
+Yes! Just add `{click_id}` to both links and any parameter within the placeholder will pass on to the	
+target link as well. For example, to support Partnerize links use the following:	
+
+Source URL:	
+```	
+/my-offer/{click_id}	
+```	
+
+Target URL:	
+```	
+https://prf.hn/click/camref:123/pubref:{click_id}	
+```	
+
+Then, use links like `/my-offer/test1` to pass the click id to Partnerize.	
+
+== Screenshots ==	== Screenshots ==
+
+
+1. Create and edit your affiliate links	1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is stored in the /assets directory.
+2. Quickly add AnyTrack TAG to your website	2. This is the second screen shot
+
+
+== Upgrade Notice ==	== Upgrade Notice ==
+
+
+= 0.1 =	= 0.1 =
+Initial version.	Initial version.
+== Changelog ==	== Changelog ==
+= 0.1 =	= 0.1 =
 * Initial version.
