@@ -1,10 +1,10 @@
 <?php 
 
 // save redirect
-add_action('wp_ajax_save_redirect', 'wcr_save_redirect');
-add_action('wp_ajax_nopriv_save_redirect', 'wcr_save_redirect');
+add_action('wp_ajax_save_redirect', 'aalm_save_redirect');
+add_action('wp_ajax_nopriv_save_redirect', 'aalm_save_redirect');
 
-function wcr_save_redirect(){
+function aalm_save_redirect(){
 	global $current_user, $wpdb;
 	if( check_ajax_referer( 'ajax_call_nonce', 'security') ){
 		
@@ -29,13 +29,13 @@ function wcr_save_redirect(){
 }
 
 // save redirect
-add_action('wp_ajax_get_empty_row', 'wcr_get_empty_row');
-add_action('wp_ajax_nopriv_get_empty_row', 'wcr_get_empty_row');
+add_action('wp_ajax_get_empty_row', 'aalm_get_empty_row');
+add_action('wp_ajax_nopriv_get_empty_row', 'aalm_get_empty_row');
 
-function wcr_get_empty_row(){
+function aalm_get_empty_row(){
 	global $current_user, $wpdb;
 	if( check_ajax_referer( 'ajax_call_nonce', 'security') ){
-		echo json_encode( ['result' => 'success', 'text' => wcr_gnerate_palceholder() ] );
+		echo json_encode( ['result' => 'success', 'text' => aalm_gnerate_palceholder() ] );
 	}
 	die();
 }

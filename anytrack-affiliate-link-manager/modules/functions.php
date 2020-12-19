@@ -1,5 +1,5 @@
 <?php 
-function wcr_gnerate_palceholder(){
+function aalm_gnerate_palceholder(){
 	$locale = 'aalm';
 	 $data_block = '
 	 <tr id="post-41726" class="iedit author-self level-0 post-41726 type-custom_redirect status-publish hentry">

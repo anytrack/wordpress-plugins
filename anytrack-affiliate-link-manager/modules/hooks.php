@@ -15,14 +15,14 @@ add_Action('wp_head', function(){
 
 
 // orderable
-add_filter( 'manage_edit-custom_redirect_sortable_columns',  'wcr_make_column_sortable');
-add_action( 'pre_get_posts',  'wcr_column_custom_ordering' );
-function wcr_make_column_sortable( $columns  ){
+add_filter( 'manage_edit-custom_redirect_sortable_columns',  'aalm_make_column_sortable');
+add_action( 'pre_get_posts',  'aalm_column_custom_ordering' );
+function aalm_make_column_sortable( $columns  ){
 	$columns['count'] = 'count';
 	return $columns;
 }
 
-function wcr_column_custom_ordering( $query ){
+function aalm_column_custom_ordering( $query ){
 	if( ! is_admin() )
     return;
  
@@ -188,8 +188,8 @@ add_Action('admin_head', function(){
 	';
 });
 
-add_filter( 'manage_edit-custom_redirect_columns', 'wcr_custom_redirect_columns' ) ;
-function wcr_custom_redirect_columns( $columns ) {
+add_filter( 'manage_edit-custom_redirect_columns', 'aalm_custom_redirect_columns' ) ;
+function aalm_custom_redirect_columns( $columns ) {
 	$locale = 'aalm';
 	$columns = array(
 		'cb' => '<input type="checkbox" />',	
@@ -202,9 +202,9 @@ function wcr_custom_redirect_columns( $columns ) {
 	return $columns;
 }
 
-add_action( 'manage_custom_redirect_posts_custom_column', 'wcr_custom_redirect_posts_custom_column', 10, 2 );
+add_action( 'manage_custom_redirect_posts_custom_column', 'aalm_custom_redirect_posts_custom_column', 10, 2 );
 
-function wcr_custom_redirect_posts_custom_column( $column, $post_id ) {
+function aalm_custom_redirect_posts_custom_column( $column, $post_id ) {
 	$locale = 'aalm';
 	global $post;
 	switch( $column ) {
