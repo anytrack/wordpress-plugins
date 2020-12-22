@@ -125,10 +125,10 @@ Then, use links like `/my-offer/test1` to pass the click id to Partnerize.
 
 == Upgrade Notice ==
 
-= 0.1 =
+= 1.0.0 =
 Initial version.
 
 == Changelog ==
 
-= 0.1 =
+= 1.0.0 =
 * Initial version.

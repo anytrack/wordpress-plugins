@@ -5,5 +5,5 @@ pluginFolder=${1}
 message=${2}
 
 cd "svn/$pluginFolder"
-cp -a "../$pluginFolder/." "./trunk"
+cp -a "../../$pluginFolder/." "./trunk"
 svn ci -m "$message"
