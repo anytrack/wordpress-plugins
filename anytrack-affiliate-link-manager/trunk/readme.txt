@@ -1,7 +1,7 @@
 === AnyTrack Affiliate Link Manager ===
 Contributors: moshest
 Donate link: https://anytrack.io/
-Tags: anytrack, redirect, offer, redirection, links, 302, 301, affiliate
+Tags: anytrack, redirect, redirection, affiliate, affiliate links, affiliate link management, affiliate tracking, partnerize, hasoffers, cj affiliates
 Requires at least: 4.7
 Tested up to: 5.4
 Stable tag: 4.3
