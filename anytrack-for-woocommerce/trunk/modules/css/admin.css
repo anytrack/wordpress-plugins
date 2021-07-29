@@ -1,0 +1,66 @@
+.tw-bs input[type=checkbox] {
+	width:15px !important;
+	height:15px !important;
+}
+.tw-bs input[type=radio]{
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 10px !important;
+}
+.image_preview{
+		
+	overflow: hidden;
+}
+.image_preview img{
+	width:150px;
+	float:left;
+	margin-right:10px;
+}
+.big_loader{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	background-image: url(loader.gif);
+	background-color:rgba(255,255,255,0.5);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	z-index:1000000;
+	
+}
+.hero_section{
+	padding: 6rem 3rem !important;
+	margin-right: -40px !important;
+    margin-left: -40px !important;
+}
+body.woocommerce_page_waapmain_settings{
+	background1: white;
+}
+.hero_section .item_logo{
+	margin-top: -30px;
+    max-width: 200px;
+
+}
+.fs-14{
+	font-size:14px !important;
+}
+.fs-16{
+	font-size:16px !important;
+}
+
+.is_small{
+	max-width: 400px !important;
+    display: inline-block !important;
+}
+.ml-15{
+	margin-left:-15px;
+}
+.qtip-content{
+	padding:10px;
+	font-size:14px;
+	line-height:16px;
+}
+.qtip-content a{
+	color:#fff;
+} 

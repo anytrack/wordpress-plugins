@@ -5,7 +5,7 @@ pluginName=${1}
 version=${2}
 
 if [[ $# -lt 2 ]] ; then
-    echo "Usage: ${0} [pluginName] [commitMessage]"
+    echo "Usage: ${0} [pluginName] [version]"
     exit 0
 fi
 
