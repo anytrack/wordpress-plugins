@@ -7,10 +7,11 @@ function anytrack_for_woocommerce_wp_head(  ) {
 	$settings = get_option('waap_options');
 
 	if( $settings['property_id'] && $settings['property_id'] != '' ){
-		$header_message = '<!-- AnyTrack Tracking Code -->
-		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="https://assets.anytrack.io/'.esc_html( $settings['property_id'] ).'.js",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
+	    $asset_url = 'https://assets.anytrack.io/'.$settings['property_id'].'.js';
+
+		echo '<!-- AnyTrack Tracking Code -->
+		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="'.esc_url($asset_url).'",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
 		<!-- End AnyTrack Tracking Code -->';
-		echo $header_message;
 	}
 	
 }
