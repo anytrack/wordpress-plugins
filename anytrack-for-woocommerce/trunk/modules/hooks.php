@@ -1,143 +1,146 @@
-<?php
-
+<?php 
 
 // script insertion
-add_filter('wp_head', 'anytrack_for_woocommerce_wp_head') ;
-function anytrack_for_woocommerce_wp_head()
-{
-    $settings = get_option('waap_options');
+add_filter( 'wp_head', 'anytrack_for_woocommerce_wp_head' ) ;
+function anytrack_for_woocommerce_wp_head(  ) {
 
-    if ($settings['property_id'] && $settings['property_id'] != '') {
-        $header_message = '<!-- AnyTrack Tracking Code -->
-		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="https://assets.anytrack.io/'.esc_html($settings['property_id']).'.js",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
+	$settings = get_option('waap_options');
+
+	if( $settings['property_id'] && $settings['property_id'] != '' ){
+		$header_message = '<!-- AnyTrack Tracking Code -->
+		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="https://assets.anytrack.io/'.esc_html( $settings['property_id'] ).'.js",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
 		<!-- End AnyTrack Tracking Code -->';
-        echo $header_message;
-    }
+		echo $header_message;
+	}
+	
 }
 
 // hooks processing
-add_action('woocommerce_add_to_cart', 'anytrack_for_woocommerce_woocommerce_add_to_cart', 10, 6);
-function anytrack_for_woocommerce_woocommerce_add_to_cart($cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data)
-{
-    $settings = get_option('waap_options');
+add_action( 'woocommerce_add_to_cart', 'anytrack_for_woocommerce_woocommerce_add_to_cart', 10, 6 );
+function anytrack_for_woocommerce_woocommerce_add_to_cart( $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data ){
+	$settings = get_option('waap_options');
+ 
+	$product_info = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id);
+	$items = [];
+	$items['items'][] = $product_info;
 
-    $product_info = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id);
-    $items = [];
-    $items['items'][] = $product_info;
-
-    anytrack_for_woocommerce_send_endpoint_data($settings['add_to_cart'], $items, 'AddToCart', 'woocommerce_add_to_cart');
+	anytrack_for_woocommerce_send_endpoint_data( $settings['add_to_cart'], $items, 'AddToCart', 'woocommerce_add_to_cart' );
+	 
 }
 
 // go to checkout - return full cart content
-add_action('template_redirect', 'anytrack_for_woocommerce_template_redirect', 10);
-function anytrack_for_woocommerce_template_redirect()
-{
-    $settings = get_option('waap_options');
+add_action( 'template_redirect', 'anytrack_for_woocommerce_template_redirect', 10  );
+function anytrack_for_woocommerce_template_redirect(  ){
+	$settings = get_option('waap_options');
+ 
+	if( is_checkout() && !isset( $_GET['key'] ) ){
 
-    if (is_checkout() && !isset($_GET['key'])) {
-        global $woocommerce;
-        $items = $woocommerce->cart->get_cart();
-        $cart_items = [];
+		global $woocommerce;
+	    $items = $woocommerce->cart->get_cart();
+		$cart_items = [];
+	 
+		foreach($items as $item => $values) { 
+			$variation_id = 0;
 
-        foreach ($items as $item => $values) {
-            $variation_id = 0;
+			$product_id = $values['data']->get_id();
+	 
+			$product = wc_get_product( $product_id );
+			if ( $product->is_type( 'variable' ) ) {
+				$variation_id = $product_id;
+			}
+			$quantity = $values['quantity'];
+			$cart_items[] = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id);
+		}
+		$out_items = [];
+		$out_items['items'] = $cart_items;
+		$out_items['total'] = $woocommerce->cart->get_cart_total();
+		$order_info['currency'] = get_woocommerce_currency();
+		
+		anytrack_for_woocommerce_send_endpoint_data( $settings['initiate_checkout'], $out_items, 'InitiateCheckout', 'is_checkout' );
 
-            $product_id = $values['data']->get_id();
-
-            $product = wc_get_product($product_id);
-            if ($product->is_type('variable')) {
-                $variation_id = $product_id;
-            }
-            $quantity = $values['quantity'];
-            $cart_items[] = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id);
-        }
-        $out_items = [];
-        $out_items['items'] = $cart_items;
-        $out_items['total'] = $woocommerce->cart->get_cart_total();
-        $order_info['currency'] = get_woocommerce_currency();
-
-        anytrack_for_woocommerce_send_endpoint_data($settings['initiate_checkout'], $out_items, 'InitiateCheckout', 'is_checkout');
-    }
+		
+	}
 }
 
 // order created hook
 
-add_action('woocommerce_thankyou', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1);
-function anytrack_for_woocommerce_woocommerce_new_order($order_id)
-{
-    $settings = get_option('waap_options');
+add_action( 'woocommerce_thankyou', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
+function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
+	$settings = get_option('waap_options');
 
-    //$order_id = 3881;
-    $order = wc_get_order($order_id);
+	//$order_id = 3881;
+	$order = wc_get_order( $order_id );
 
-    $order_info = [];
-    $order_info['ID'] = $order->get_id();
-    $order_info['order_key'] = $order->get_order_key();
+	$order_info = [];
+	$order_info['ID'] = $order->get_id();
+	$order_info['order_key'] = $order->get_order_key();
 
-    $order_info['formatted_order_total'] = $order->get_formatted_order_total();
-    $order_info['cart_tax'] = $order->get_cart_tax();
-    $order_info['currency'] = $order->get_currency();
-    $order_info['discount_tax'] = $order->get_discount_tax();
-    $order_info['discount_to_display'] = $order->get_discount_to_display();
-    $order_info['discount_total'] = $order->get_discount_total();
-    $order_info['fees'] = $order->get_fees();
-    //$order_info['formatted_line_subtotal'] = $order->get_formatted_line_subtotal();
-    $order_info['shipping_tax'] = $order->get_shipping_tax();
-    $order_info['shipping_total'] = $order->get_shipping_total();
-    $order_info['subtotal'] = $order->get_subtotal();
-    $order_info['taxes'] = $order->get_taxes();
-    $order_info['total'] = $order->get_total();
-    $order_info['total_discount'] = $order->get_total_discount();
-    $order_info['total_tax'] = $order->get_total_tax();
-    $order_info['total_refunded'] = $order->get_total_refunded();
-    $order_info['total_refunded'] = $order->get_total_refunded();
+	$order_info['formatted_order_total'] = $order->get_formatted_order_total();
+	$order_info['cart_tax'] = $order->get_cart_tax();
+	$order_info['currency'] = $order->get_currency();
+	$order_info['discount_tax'] = $order->get_discount_tax();
+	$order_info['discount_to_display'] = $order->get_discount_to_display();
+	$order_info['discount_total'] = $order->get_discount_total();
+	$order_info['fees'] = $order->get_fees();
+	//$order_info['formatted_line_subtotal'] = $order->get_formatted_line_subtotal();
+	$order_info['shipping_tax'] = $order->get_shipping_tax();
+	$order_info['shipping_total'] = $order->get_shipping_total();
+	$order_info['subtotal'] = $order->get_subtotal();
+	$order_info['taxes'] = $order->get_taxes();
+	$order_info['total'] = $order->get_total();
+	$order_info['total_discount'] = $order->get_total_discount();
+	$order_info['total_tax'] = $order->get_total_tax();
+	$order_info['total_refunded'] = $order->get_total_refunded();
+	$order_info['total_refunded'] = $order->get_total_refunded();
 
-    $all_inner_items = [];
-    foreach ($order->get_items() as $item_id => $item) {
-        $product_id = $item->get_product_id();
-        $variation_id = $item->get_variation_id();
-        $quantity = $item->get_quantity();
-        $all_inner_items[] = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id = 0);
-    }
-    $order_info['items'] = $all_inner_items;
+	$all_inner_items = [];
+	foreach ( $order->get_items() as $item_id => $item ) {
+		$product_id = $item->get_product_id();
+		$variation_id = $item->get_variation_id();
+		$quantity = $item->get_quantity();
+		$all_inner_items[] = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id = 0 );
+	}
+	$order_info['items'] = $all_inner_items;
 
-    //billing
-    $order_info['customer_id'] = $order->get_customer_id();
-    $order_info['user_id'] = $order->get_user_id();
-    $order_info['customer_ip_address'] = $order->get_customer_ip_address();
-    $order_info['customer_user_agent'] = $order->get_customer_user_agent();
-    $order_info['customer_note'] = $order->get_customer_note();
-    //$order_info['address_prop'] = $order->get_address_prop();
-    $order_info['billing_first_name'] = $order->get_billing_first_name();
-    $order_info['billing_last_name'] = $order->get_billing_last_name();
-    $order_info['billing_company'] = $order->get_billing_company();
-    $order_info['billing_address_1'] = $order->get_billing_address_1();
-    $order_info['billing_address_2'] = $order->get_billing_address_2();
-    $order_info['billing_city'] = $order->get_billing_city();
-    $order_info['billing_state'] = $order->get_billing_state();
-    $order_info['billing_postcode'] = $order->get_billing_postcode();
-    $order_info['billing_country'] = $order->get_billing_country();
-    $order_info['billing_email'] = $order->get_billing_email();
-    $order_info['billing_phone'] = $order->get_billing_phone();
+	//billing
+	$order_info['customer_id'] = $order->get_customer_id();
+	$order_info['user_id'] = $order->get_user_id();
+	$order_info['customer_ip_address'] = $order->get_customer_ip_address();
+	$order_info['customer_user_agent'] = $order->get_customer_user_agent();
+	$order_info['customer_note'] = $order->get_customer_note();
+	//$order_info['address_prop'] = $order->get_address_prop();
+	$order_info['billing_first_name'] = $order->get_billing_first_name();
+	$order_info['billing_last_name'] = $order->get_billing_last_name();
+	$order_info['billing_company'] = $order->get_billing_company();
+	$order_info['billing_address_1'] = $order->get_billing_address_1();
+	$order_info['billing_address_2'] = $order->get_billing_address_2();
+	$order_info['billing_city'] = $order->get_billing_city();
+	$order_info['billing_state'] = $order->get_billing_state();
+	$order_info['billing_postcode'] = $order->get_billing_postcode();
+	$order_info['billing_country'] = $order->get_billing_country();
+	$order_info['billing_email'] = $order->get_billing_email();
+	$order_info['billing_phone'] = $order->get_billing_phone();
 
-    // shipping
-    $order_info['shipping_first_name'] = $order->get_shipping_first_name();
-    $order_info['shipping_last_name'] = $order->get_shipping_last_name();
-    $order_info['shipping_company'] = $order->get_shipping_company();
-    $order_info['shipping_address_1'] = $order->get_shipping_address_1();
-    $order_info['shipping_address_2'] = $order->get_shipping_address_2();
-    $order_info['shipping_city'] = $order->get_shipping_city();
-    $order_info['shipping_state'] = $order->get_shipping_state();
-    $order_info['shipping_postcode'] = $order->get_shipping_postcode();
-    $order_info['shipping_country'] = $order->get_shipping_country();
+	// shipping
+	$order_info['shipping_first_name'] = $order->get_shipping_first_name();
+	$order_info['shipping_last_name'] = $order->get_shipping_last_name();
+	$order_info['shipping_company'] = $order->get_shipping_company();
+	$order_info['shipping_address_1'] = $order->get_shipping_address_1();
+	$order_info['shipping_address_2'] = $order->get_shipping_address_2();
+	$order_info['shipping_city'] = $order->get_shipping_city();
+	$order_info['shipping_state'] = $order->get_shipping_state();
+	$order_info['shipping_postcode'] = $order->get_shipping_postcode();
+	$order_info['shipping_country'] = $order->get_shipping_country();
 
-    $order_info['payment_method'] = $order->get_payment_method();
-    $order_info['payment_method_title'] = $order->get_payment_method_title();
-    $order_info['transaction_id'] = $order->get_transaction_id();
+	$order_info['payment_method'] = $order->get_payment_method();
+	$order_info['payment_method_title'] = $order->get_payment_method_title();
+	$order_info['transaction_id'] = $order->get_transaction_id();
 
-    $order_info['status'] = $order->get_status();
+	$order_info['status'] = $order->get_status();
 
+  
 
+	anytrack_for_woocommerce_send_endpoint_data( $settings['purchase'], $order_info, 'Purchase', 'woocommerce_thankyou' );
 
-    anytrack_for_woocommerce_send_endpoint_data($settings['purchase'], $order_info, 'Purchase', 'woocommerce_thankyou');
 }
+?>
