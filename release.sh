@@ -26,6 +26,6 @@ cp -a "./${pluginName}/trunk/." "${svnPath}/tags/${version}"
 
 svn add "${svnPath}/assets/"*
 svn add "${svnPath}/trunk/"*
-svn add "${svnPath}/tags/${version}/"*
+svn add --parents "${svnPath}/tags/${version}/"*
 
 svn ci "${svnPath}" -m "v${version}"
