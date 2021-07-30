@@ -3,8 +3,8 @@ Contributors: moshest
 Donate link: https://anytrack.io/
 Tags: anytrack, redirect, redirection, affiliate, affiliate links, affiliate link management, affiliate tracking, partnerize, hasoffers, cj affiliates
 Requires at least: 4.7
-Tested up to: 5.7
-Stable tag: 4.3
+Tested up to: 5.8
+Stable tag: 1.0.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
