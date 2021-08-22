@@ -64,3 +64,19 @@ body.woocommerce_page_waapmain_settings{
 .qtip-content a{
 	color:#fff;
 } 
+
+.tw-bs4 .form-control::-webkit-input-placeholder {
+	opacity: 0.5 !important;
+  }
+  .tw-bs4 .form-control::-moz-placeholder {
+	opacity: 0.5 !important;
+  }
+  .tw-bs4 .form-control:-ms-input-placeholder {
+	opacity: 0.5 !important;
+  }
+  .tw-bs4 .form-control::-ms-input-placeholder {
+	opacity: 0.5 !important;
+  }
+  .tw-bs4 .form-control::placeholder {
+	opacity: 0.5 !important;
+  }
