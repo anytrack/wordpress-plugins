@@ -77,5 +77,8 @@ Initial version.
 
 == Changelog ==
 
+= 1.1.2 =
+* Fix default settings when installing the plugin
+
 = 1.1.1 =
 * Initial version.
