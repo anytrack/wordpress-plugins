@@ -65,7 +65,7 @@ function anytrack_for_woocommerce_template_redirect(  ){
 
 // order created hook
 
-add_action( 'woocommerce_thankyou', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
+add_action( 'woocommerce_payment_complete', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
 function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 	$settings = get_option('waap_options');
 
@@ -141,7 +141,7 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 
   
 
-	anytrack_for_woocommerce_send_endpoint_data( $settings['purchase'], $order_info, 'Purchase', 'woocommerce_thankyou' );
+	anytrack_for_woocommerce_send_endpoint_data( $settings['purchase'], $order_info, 'Purchase', 'woocommerce_payment_complete' );
 
 }
 ?>
