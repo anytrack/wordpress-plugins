@@ -17,7 +17,7 @@ rm -rf "${svnPath}"
 svn co "https://plugins.svn.wordpress.org/${pluginName}" "${svnPath}" -q
 svn del "${svnPath}/assets/"*
 svn del "${svnPath}/trunk/"*
-svn del "${svnPath}/tags/${version}/"*
+svn del "${svnPath}/tags/${version}/"* || echo "new version: ${version}"
 
 cp -a "./${pluginName}/assets/." "${svnPath}/assets"
 cp -a "./${pluginName}/trunk/." "${svnPath}/trunk"
