@@ -2,10 +2,10 @@
 /*
 Plugin Name: AnyTrack for WooCommerce
 Description: Connect with Google, Facebook, Bing, Taboola and Outbrain and sync all your ad campaigns directly from WooCommerce.
-Version: 1.2.0
+Version: 1.3.0
 Author: AnyTrack Ltd.
 Author URI: https://anytrack.io
-Stable tag: 1.2
+Stable tag: 1.3
 */
 
 //error_reporting(E_ALL);

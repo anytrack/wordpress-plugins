@@ -4,7 +4,7 @@ Donate link: https://anytrack.io/
 Tags: anytrack, woocommerce, e-commerce, conversions, checkout, facebook, google, pixel, bing, taboola, outbrain, tiktok, pinterest, twitter
 Requires at least: 4.7
 Tested up to: 5.8
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -76,6 +76,9 @@ prefer on the pixel settings on AnyTrack.
 Initial version.
 
 == Changelog ==
+
+= 1.3.0 =
+* Improve capture of purchase events in PayPal
 
 = 1.2.0 =
 * Improve capture of purchase events in Cartflows

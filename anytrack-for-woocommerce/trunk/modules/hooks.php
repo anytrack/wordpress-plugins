@@ -63,11 +63,18 @@ function anytrack_for_woocommerce_template_redirect(  ){
 	}
 }
 
-// order created hook
-
+// order created hooks
+add_action( 'woocommerce_new_order', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
 add_action( 'woocommerce_payment_complete', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
 function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 	$settings = get_option('waap_options');
+
+	$is_processed = get_post_meta( $order_id, '_anytrack_processed', true );
+	if ( $is_processed == '1' ){
+		return false;
+	} else {
+		update_post_meta( $order_id, '_anytrack_processed', '1' );
+	}
 
 	//$order_id = 3881;
 	$order = wc_get_order( $order_id );
