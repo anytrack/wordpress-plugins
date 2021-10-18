@@ -32,6 +32,8 @@ function anytrack_for_woocommerce_send_endpoint_data( $action, $data, $fixedType
 		'headers' => array(
 			'Content-Type' => 'application/json',
 		),
+		'timeout' => 45,
+		'blocking' => false,
 	]);
 	if( !is_wp_error( $result ) ){
 		return true;
