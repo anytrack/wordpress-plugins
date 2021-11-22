@@ -51,6 +51,7 @@ function anytrack_for_woocommerce_get_single_product_info( $product_id, $qty, $v
 		$product = wc_get_product( $product_id );
 		$all_cats = wp_get_post_terms( $product_id, 'product_cat' );
 		$all_tags = wp_get_post_terms( $product_id, 'product_tag' );
+		$variation_variations = null;
 	}else{
 		// variable product
 	 
