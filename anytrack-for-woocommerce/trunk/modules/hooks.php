@@ -5,9 +5,10 @@ add_filter( 'wp_head', 'anytrack_for_woocommerce_wp_head' ) ;
 function anytrack_for_woocommerce_wp_head(  ) {
 
 	$settings = get_option('waap_options');
+	$property_id = isset($settings['property_id']) ? $settings['property_id'] : '';
 
-	if( $settings['property_id'] && $settings['property_id'] != '' ){
-	    $asset_url = 'https://assets.anytrack.io/'.$settings['property_id'].'.js';
+	if( $property_id  && $property_id  != '' ){
+	    $asset_url = 'https://assets.anytrack.io/'.$property_id .'.js';
 
 		echo '<!-- AnyTrack Tracking Code -->
 		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="'.esc_url($asset_url).'",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
@@ -20,12 +21,13 @@ function anytrack_for_woocommerce_wp_head(  ) {
 add_action( 'woocommerce_add_to_cart', 'anytrack_for_woocommerce_woocommerce_add_to_cart', 10, 6 );
 function anytrack_for_woocommerce_woocommerce_add_to_cart( $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data ){
 	$settings = get_option('waap_options');
+	$add_to_cart = isset($settings['add_to_cart']) ? $settings['add_to_cart'] : '';
  
 	$product_info = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id);
 	$items = [];
 	$items['items'][] = $product_info;
 
-	anytrack_for_woocommerce_send_endpoint_data( $settings['add_to_cart'], $items, 'AddToCart', 'woocommerce_add_to_cart' );
+	anytrack_for_woocommerce_send_endpoint_data( $add_to_cart, $items, 'AddToCart', 'woocommerce_add_to_cart' );
 	 
 }
 
@@ -33,6 +35,7 @@ function anytrack_for_woocommerce_woocommerce_add_to_cart( $cart_item_key, $prod
 add_action( 'template_redirect', 'anytrack_for_woocommerce_template_redirect', 10  );
 function anytrack_for_woocommerce_template_redirect(  ){
 	$settings = get_option('waap_options');
+	$initiate_checkout = isset($settings['initiate_checkout']) ? $settings['initiate_checkout'] : '';
  
 	if( is_checkout() && !isset( $_GET['key'] ) ){
 
@@ -57,7 +60,7 @@ function anytrack_for_woocommerce_template_redirect(  ){
 		$out_items['total'] = $woocommerce->cart->get_cart_total();
 		$order_info['currency'] = get_woocommerce_currency();
 		
-		anytrack_for_woocommerce_send_endpoint_data( $settings['initiate_checkout'], $out_items, 'InitiateCheckout', 'is_checkout' );
+		anytrack_for_woocommerce_send_endpoint_data( $initiate_checkout, $out_items, 'InitiateCheckout', 'is_checkout' );
 
 		
 	}
@@ -75,6 +78,7 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 	//$order_id = 3881;
 	$order = wc_get_order( $order_id );
 	$settings = get_option('waap_options');
+	$purchase = isset($settings['purchase']) ? $settings['purchase'] : '';
 
 	$order_info = [];
 	$order_info['ID'] = $order->get_id();
@@ -143,7 +147,7 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 
 	$order_info['status'] = $order->get_status();
 
-	anytrack_for_woocommerce_send_endpoint_data( $settings['purchase'], $order_info, 'Purchase', 'woocommerce_payment_complete' );
+	anytrack_for_woocommerce_send_endpoint_data( $purchase, $order_info, 'Purchase', 'woocommerce_payment_complete' );
 
     update_post_meta( $order_id, '_anytrack_processed', '1' );
 }

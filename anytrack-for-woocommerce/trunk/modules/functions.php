@@ -1,31 +1,33 @@
 <?php 
 function anytrack_for_woocommerce_send_endpoint_data( $action, $data, $fixedType, $hookType ){
-	$settings = get_option('waap_options');	 
-	$endpoint_url = 'https://t1.anytrack.io/assets/'.esc_html( $settings['property_id'] ).'/collect/woocommerce';
-	//$endpoint_url = 'https://en7vb91n5n7uynz.m.pipedream.net';
+	$settings = get_option('waap_options');	
+	
+	$property_id = isset($settings['property_id']) ? $settings['property_id'] : '';
+	$at_cid = isset($_COOKIE['_atcid']) ? $_COOKIE['_atcid'] : '';
 
+	// check if values are set
+	if( 
+		(	!$property_id || $property_id == '' )
+		||
+		( !$action || $action == '' )
+		||
+		( !$at_cid || $at_cid == '' )
+	){
+		return false;
+	}
+	
+	$endpoint_url = 'https://t1.anytrack.io/assets/'.esc_html( $property_id ).'/collect/woocommerce';
+	//$endpoint_url = 'https://en7vb91n5n7uynz.m.pipedream.net';
 
 	// prepare data archive
 	$out_data = [
 		'eventName' => esc_html( $action ),
-		'cid' => esc_html( $_COOKIE['_atcid'] ),
+		'cid' => esc_html( $at_cid ),
 		'data' => $data,
 		'timestamp' => microtime( true )*1000,
 		'type' => $fixedType,
 		'hookType' => $hookType
 	];
-
-
-	// check if values are set
-	if( 
-		(	!$settings['property_id'] || $settings['property_id'] == '' )
-		||
-		( !$action || $action == '' )
-		||
-		( !$_COOKIE['_atcid'] || $_COOKIE['_atcid'] == '' )
-	){
-		return false;
-	}
 
 	$result = wp_remote_post( $endpoint_url, [
 		'body' => json_encode( $out_data ),

@@ -24,3 +24,13 @@ node_modules/
 
 # ignore svn release code
 svn/
+
+# ignore mac files
+.DS_Store
+
+# ignore IDE files
+.history
+.idea
+
+# ignore release files
+*.zip
