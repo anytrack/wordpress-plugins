@@ -3,7 +3,13 @@ function anytrack_for_woocommerce_send_endpoint_data( $action, $data, $fixedType
 	$settings = get_option('waap_options');	
 	
 	$property_id = isset($settings['property_id']) ? $settings['property_id'] : '';
-	$at_cid = isset($_COOKIE['_atcid']) ? $_COOKIE['_atcid'] : '';
+	$at_cid = isset($data['ID']) ? get_post_meta( $data['ID'] , '_atcid', true ) : '';
+
+	//check if cookie saved in order
+	if( !$at_cid || $at_cid == ''  ){	
+		$at_cid = isset($_COOKIE['_atcid']) ? $_COOKIE['_atcid'] : '';
+	}
+	
 
 	// check if values are set
 	if( 

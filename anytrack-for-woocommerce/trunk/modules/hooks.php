@@ -151,4 +151,15 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 
     update_post_meta( $order_id, '_anytrack_processed', '1' );
 }
+
+
+/**
+ * save cookie as order meta on creation
+ */
+add_action('woocommerce_new_order', function ($order_id) {
+	$at_cid = isset($_COOKIE['_atcid']) ? $_COOKIE['_atcid'] : '';
+	if( $at_cid && $at_cid != '' ){
+		update_post_meta( $order_id , '_atcid', $at_cid );
+	}
+}, 10, 1);
 ?>
