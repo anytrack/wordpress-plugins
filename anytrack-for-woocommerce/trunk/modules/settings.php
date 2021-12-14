@@ -261,6 +261,16 @@ add_Action('init',  function (){
 					'id' => '',
 					'class' => ''
 				),
+				array(
+					'type' => 'text',
+					'title' => __('View Content',$locale),
+					'name' => 'ViewContent',
+					'sub_text' => __('', $locale),
+					'style' => ' ',
+					'placeholder' => 'ViewContent',
+					'id' => '',
+					'class' => ''
+				),
 
 
 				array(

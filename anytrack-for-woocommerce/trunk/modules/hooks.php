@@ -66,6 +66,29 @@ function anytrack_for_woocommerce_template_redirect(  ){
 	}
 }
 
+/**
+ * View single product
+ */
+add_action( 'template_redirect', 'anytrack_for_woocommerce_view_product', 10  );
+function anytrack_for_woocommerce_view_product(  ){
+	global $post;
+	$settings = get_option('waap_options');
+	$viewProduct = isset($settings['ViewContent']) ? $settings['ViewContent'] : '';
+ 
+	if( is_product() ){
+
+		$product_info = anytrack_for_woocommerce_get_single_product_info( $post->ID );
+
+		$items = [];
+		$items['items'][] = $product_info;
+
+		
+		anytrack_for_woocommerce_send_endpoint_data( $viewProduct, $items, 'ViewContent', 'is_product' );
+
+		
+	}
+}
+
 // order created hooks
 add_action( 'woocommerce_thankyou', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
 add_action( 'woocommerce_payment_complete', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );

@@ -51,7 +51,7 @@ function anytrack_for_woocommerce_send_endpoint_data( $action, $data, $fixedType
 }
 
 
-function anytrack_for_woocommerce_get_single_product_info( $product_id, $qty, $variation_id = 0 ){
+function anytrack_for_woocommerce_get_single_product_info( $product_id, $qty = 0, $variation_id = 0 ){
 
 	$total_variations = '';
 	if( $variation_id == 0 ){
