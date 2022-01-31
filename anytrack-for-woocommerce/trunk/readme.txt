@@ -9,21 +9,21 @@ Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-AnyTrack for WooCommerce: Conversion Tracking for Google, Facebook, Bing, Taboola and Outbrain
+AnyTrack for WooCommerce: Woocommerce Conversion Tracking for Google Ads, Facebook Ads, Bing, Taboola and Outbrain
 
 == Description ==
 
 = AnyTrack for WooCommerce =
 
-Connect with Google, Facebook, Bing, Taboola and Outbrain and sync all your ad campaigns directly from WooCommerce.
+Connect with Google, Facebook, Bing, Taboola and Outbrain and sync all your customer journey and conversions from Woocommerce.
 
 = The Challenge: =
 
 You can only achieve Data-Driven Marketing capabilities when your conversion data flows across your marketing stack, in real-time. This is what AnyTrack will provide you: Easy-to-use and intuitive, yet surprisingly robust and multi-faceted.
 
-AnyTrack is the catalyst that lets you grow and scale whether you’re a beginner, expert, agency, or publisher. No matter your digital marketing specialty. AnyTrack will get all your conversion data in one simple and easy to use platform. AnyTrack plugin for WooCommerce enables direct integration with AnyTrack and allows you collect, track and attribute all your tracking pixels within your AnyTrack account.
+AnyTrack is the catalyst that lets you grow and scale whether you’re a beginner, expert, agency, or publisher. No matter your digital marketing game. AnyTrack will get all your conversion data in one simple and easy to use platform. AnyTrack plugin for WooCommerce enables direct integration between your WooCommerce Shop and all your favorite ad networks.
 
-As soon as the AnyTrack TAG is on your site, conversions, engagements and opt-ins are instantly tracked and attributed to your ads and organic traffic. Your conversion data is forwarded in real-time to Google Analytics,  Facebook Conversion API, and other pixels so you can leverage high intent audience data to optimize and improve your campaigns ROI.
+As soon as the AnyTrack TAG is on your site, conversions, engagements and opt-ins are instantly tracked and attributed to your ads and Google Analytics. Your conversion data is forwarded in real-time to Google Analytics, [Facebook Conversion API](https://anytrack.io/facebook-conversion-api), and other pixels so you can leverage high intent audience data to optimize and improve your campaigns ROI.
 
 With AnyTrack you can finally see — with unmatched clarity — everything that happens to your traffic and customers across all your funnels. Making optimizing, scaling, and improving your ROI faster and simpler.
 
