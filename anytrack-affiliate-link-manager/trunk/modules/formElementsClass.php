@@ -10,14 +10,32 @@
 	 
 			$this->type = $type;
 			$this->parameters = $parameters;
+
+			// array empty patch
+			$default_array = [
+				'class' => '',
+				'id' => '',
+				'value' => '',
+				'default' => '',
+				'width' => '',
+				'title' => '',
+				'sub_title' => '',
+				'sub_text' => '',
+				'rows' => '',
+				'name' => '',
+				'href' => '',
+				'style' => '',
+				'upload_text' => '',
+				'placeholder' => '',
+			];	
+			$this->parameters = array_merge( $default_array, $this->parameters );
 			$this->value = $value;
-			
-			
 			$this->generate_result_block();
  
 		}
 		function generate_result_block(){
 			global $post;
+			$out = '';
 			switch( $this->type ){
 				
 				case "shortcode":

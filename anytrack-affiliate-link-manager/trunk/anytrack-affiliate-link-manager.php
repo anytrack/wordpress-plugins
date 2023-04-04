@@ -3,9 +3,9 @@
 Plugin Name: AnyTrack Affiliate Link Manager
 Plugin URI: https://anytrack.io/
 Description: Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
-Version: 1.0.0
+Version: 1.0.1
 Author: AnyTrack Ltd.
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 */
 
 //error_reporting(E_ALL);

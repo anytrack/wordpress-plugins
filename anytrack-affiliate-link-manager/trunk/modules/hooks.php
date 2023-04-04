@@ -51,10 +51,15 @@ add_action('init', function(){
 		// actual processing
 		$actual_link_parts = explode('?', $actual_link);
 		
-		$actual_link_parameters = $actual_link_parts[1];
-		$actual_link = $actual_link_parts[0];
+		if( isset($actual_link_parts[1]) )
+			$actual_link_parameters = $actual_link_parts[1];
+		else
+			$actual_link_parameters = '';
 
-
+		if( isset($actual_link_parts[0]) )	
+			$actual_link = $actual_link_parts[0];
+		else
+			$actual_link = '';
 	 
 		$all_redirects = get_posts([
 			'post_type' => 'custom_redirect',
@@ -67,15 +72,25 @@ add_action('init', function(){
 	
 			// get target URL params patch
 			$target_url_parts = explode('?', $target_url);
+
+			if( isset($target_url_parts[1]) )
 			$target_url_params = $target_url_parts[1];
+			else
+			$target_url_params = '';
+
+
+			if( isset($target_url_parts[0]) )
 			$target_url = $target_url_parts[0];
+			else
+			$target_url = '';
+
 		 
 
 			$is_equal_lines = 0;
 	
 			
 	
-	
+			$home_url = '';
 			$source_url = str_replace(  $home_url, '', $source_url );
 		 
 			// {click_id} processing
@@ -214,7 +229,7 @@ function aalm_custom_redirect_posts_custom_column( $column, $post_id ) {
 
 			echo 	'<div class="params_container edit_big_'.$post_id.'  tw-bs4">
 						<div class=""><b>'.__('Source URL', $locale).':</b> <span class="place_source_url">'.get_post_meta( $post->ID, 'source_url', true ).'</span></div>
-						<!-- <div class=""><b>'.__('Query Parameters', $locale).':</b> <span class="place_query_params">'.$all_options[ get_post_meta( $post->ID, 'query_params', true ) ].'</span></div> -->
+						<!-- <div class=""><b>'.__('Query Parameters', $locale).':</b> <span class="place_query_params">'.( isset( $all_options[ get_post_meta( $post->ID, 'query_params', true ) ] ) ? $all_options[ get_post_meta( $post->ID, 'query_params', true ) ] : '' ).'</span></div> -->
 						<div class=""><b>'.__('Target URL', $locale).':</b> <span class="place_target_url">'.get_post_meta( $post->ID, 'target_url', true ).'</span></div><br/>
 
 						<div class="editor_block"  style="display:none;" >

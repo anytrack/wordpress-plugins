@@ -47,6 +47,9 @@ class aalmSettingsClassCar{
 	
 	function add_menu_item(){
 		
+
+		
+
 		foreach( $this->setttings_parameters as $single_option ){
 			if( $single_option['type'] == 'menu' ){
 				add_menu_page(  			 
@@ -108,8 +111,17 @@ class aalmSettingsClassCar{
 		foreach( $this->setttings_parameters as $single_page ){	
 			foreach( $single_page['parameters'] as $key=>$value ){	
 		 
-				$interface_element = new aalmFormElementsClass( $value['type'], $value, $config[$value['name']] );
-				echo $interface_element->get_code();	 
+					$interface_element_value =  '';
+					if( isset($value['name']) ){
+						if( isset( $config[$value['name']] ) ){
+							$interface_element_value =  $config[$value['name']];
+						}
+					}
+		
+					$interface_element = new aalmFormElementsClass( $value['type'], $value, $interface_element_value );
+					echo $interface_element->get_code();	 
+				
+				
 			 
 			}
 		}
