@@ -5,7 +5,7 @@ Plugin URI: https://anytrack.io/
 Description: Generate safe and nicer offer links with built-in support for the AnyTrack tracker.
 Version: 1.0.3
 Author: AnyTrack Ltd.
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 */
 
 //error_reporting(E_ALL);
