@@ -7,9 +7,12 @@ add_Action('wp_head', function(){
 	<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="https://assets.anytrack.io/{Property_Id}.js",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
 	<!-- End AnyTrack Tracking Code -->
 	';
-	if( $setting['property_id'] && $setting['property_id'] != '' ){
-		echo str_replace('{Property_Id}', $setting['property_id'], $tracking_code);
+	if( isset( $setting['property_id'] ) ){
+		if( $setting['property_id'] && $setting['property_id'] != '' ){
+			echo str_replace('{Property_Id}', $setting['property_id'], $tracking_code);
+		}
 	}
+	
 	
 });
 

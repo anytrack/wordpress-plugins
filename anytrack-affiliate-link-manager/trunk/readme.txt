@@ -3,8 +3,8 @@ Contributors: moshest
 Donate link: https://anytrack.io/
 Tags: anytrack, redirect, redirection, affiliate, affiliate links, affiliate link management, affiliate tracking, partnerize, hasoffers, cj affiliates
 Requires at least: 4.7
-Tested up to: 6.2
-Stable tag: 1.0.1
+Tested up to: 6.2.2
+Stable tag: 1.0.3
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -129,6 +129,12 @@ Then, use links like `/my-offer/test1` to pass the click id to Partnerize.
 Initial version.
 
 == Changelog ==
+
+= 1.0.3 =
+* Added notifications fix
+
+= 1.0.2 =
+* Added uninstall issue fix
 
 = 1.0.1 =
 * Added fixes to support 6.2 WordPress version
