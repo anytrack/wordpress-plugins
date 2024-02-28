@@ -98,12 +98,20 @@ add_Action('init', function(  ){
 			array( 'type' => 'style', 'url' => plugins_url('/css/admin.css', __FILE__ ) ),
 		),
 		'front' => array(
-		 
+			array( 
+				'type' => 'script', 
+				'url' => plugins_url('/js/front.js', __FILE__ ), 
+				'enq' => array( 'jquery' ), 
+				'localization' => array( 
+				'nonce' => wp_create_nonce( 'ajax_call_nonce' ),
+				'ajaxurl' => admin_url('admin-ajax.php')
+				)
+			),
 		)
 	);
 
  
-	$insert_script = new anytrack_for_woocommerce_AddStylesSync( 'wis' , $scripts_list);
+	$insert_script = new anytrack_for_woocommerce_AddStylesSync( 'wpafw' , $scripts_list);
 })
 
 

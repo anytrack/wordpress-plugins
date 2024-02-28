@@ -230,7 +230,16 @@ add_Action('init',  function (){
 
 				
 				
-
+				array(
+					'type' => 'text',
+					'title' => __('View Content',$locale),
+					'name' => 'ViewContent',
+					'sub_text' => __('', $locale),
+					'style' => ' ',
+					'placeholder' => 'ViewContent',
+					'id' => '',
+					'class' => ''
+				),
 				array(
 					'type' => 'text',
 					'title' => __('Add to Cart',$locale),
@@ -253,6 +262,16 @@ add_Action('init',  function (){
 				),
 				array(
 					'type' => 'text',
+					'title' => __('Add Payment Info',$locale),
+					'name' => 'add_payment_info',
+					'sub_text' => __('', $locale),
+					'style' => ' ',
+					'placeholder' => 'AddPaymentInfo',
+					'id' => '',
+					'class' => ''
+				),
+				array(
+					'type' => 'text',
 					'title' => __('Purchase',$locale),
 					'name' => 'purchase',
 					'sub_text' => __('', $locale),
@@ -261,16 +280,7 @@ add_Action('init',  function (){
 					'id' => '',
 					'class' => ''
 				),
-				array(
-					'type' => 'text',
-					'title' => __('View Content',$locale),
-					'name' => 'ViewContent',
-					'sub_text' => __('', $locale),
-					'style' => ' ',
-					'placeholder' => 'ViewContent',
-					'id' => '',
-					'class' => ''
-				),
+				
 
 
 				array(
