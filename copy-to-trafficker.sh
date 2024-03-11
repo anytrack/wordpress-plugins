@@ -1,0 +1,2 @@
+cp -R ./anytrack-for-woocommerce/trunk/ ~/DevKinsta/public/trafficker/wp-content/plugins/anytrack-for-woocommerce
+cp -R ./anytrack-affiliate-link-manager/trunk/ ~/DevKinsta/public/trafficker/wp-content/plugins/anytrack-affiliate-link-manager
