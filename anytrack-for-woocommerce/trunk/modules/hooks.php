@@ -1,105 +1,105 @@
-<?php 
+<?php
 
 // script insertion
-add_filter( 'wp_head', 'anytrack_for_woocommerce_wp_head' ) ;
-function anytrack_for_woocommerce_wp_head(  ) {
+add_filter('wp_head', 'anytrack_for_woocommerce_wp_head');
+function anytrack_for_woocommerce_wp_head()
+{
+	$ANYTRACK_ASSETS_URL = isset($ANYTRACK_ASSETS_URL) ? $ANYTRACK_ASSETS_URL : 'https://assets.anytrack.io/';
 
 	$settings = get_option('waap_options');
 	$property_id = isset($settings['property_id']) ? $settings['property_id'] : '';
 
-	if( $property_id  && $property_id  != '' ){
-	    $asset_url = 'https://assets.anytrack.io/'.$property_id .'.js';
+	if ($property_id  && $property_id  != '') {
+		$asset_url = $ANYTRACK_ASSETS_URL . $property_id . '.js';
 
 		echo '<!-- AnyTrack Tracking Code -->
-		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="'.esc_url($asset_url).'",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
+		<script>!function(e,t,n,s,a){(a=t.createElement(n)).async=!0,a.src="' . esc_url($asset_url) . '",(t=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,t),e[s]=e[s]||function(){(e[s].q=e[s].q||[]).push(arguments)}}(window,document,"script","AnyTrack");</script>
 		<!-- End AnyTrack Tracking Code -->';
 	}
-	
 }
 
 // hooks processing
-add_action( 'woocommerce_add_to_cart', 'anytrack_for_woocommerce_woocommerce_add_to_cart', 10, 6 );
-function anytrack_for_woocommerce_woocommerce_add_to_cart( $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data ){
+add_action('woocommerce_add_to_cart', 'anytrack_for_woocommerce_woocommerce_add_to_cart', 10, 6);
+function anytrack_for_woocommerce_woocommerce_add_to_cart($cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data)
+{
 	$settings = get_option('waap_options');
 	$add_to_cart = isset($settings['add_to_cart']) ? $settings['add_to_cart'] : '';
- 
-	$product_info = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id);
+
+	$product_info = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id);
 	$items = [];
 	$items['items'][] = $product_info;
 
-	anytrack_for_woocommerce_send_endpoint_data( $add_to_cart, $items, 'AddToCart', 'woocommerce_add_to_cart' );
-	 
+	anytrack_for_woocommerce_send_endpoint_data($add_to_cart, $items, 'AddToCart', 'woocommerce_add_to_cart');
 }
 
 // go to checkout - return full cart content
-add_action( 'template_redirect', 'anytrack_for_woocommerce_template_redirect', 10  );
-function anytrack_for_woocommerce_template_redirect(  ){
+add_action('template_redirect', 'anytrack_for_woocommerce_template_redirect', 10);
+function anytrack_for_woocommerce_template_redirect()
+{
 	$settings = get_option('waap_options');
 	$initiate_checkout = isset($settings['initiate_checkout']) ? $settings['initiate_checkout'] : '';
- 
-	if( is_checkout() && !isset( $_GET['key'] ) ){
+
+	if (is_checkout() && !isset($_GET['key'])) {
 
 		global $woocommerce;
-	    $items = $woocommerce->cart->get_cart();
+		$items = $woocommerce->cart->get_cart();
 		$cart_items = [];
-	 
-		foreach($items as $item => $values) { 
+
+		foreach ($items as $item => $values) {
 			$variation_id = 0;
 
 			$product_id = $values['data']->get_id();
-	 
-			$product = wc_get_product( $product_id );
-			if ( $product->is_type( 'variable' ) ) {
+
+			$product = wc_get_product($product_id);
+			if ($product->is_type('variable')) {
 				$variation_id = $product_id;
 			}
 			$quantity = $values['quantity'];
-			$cart_items[] = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id);
+			$cart_items[] = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id);
 		}
 		$out_items = [];
 		$out_items['items'] = $cart_items;
 		$out_items['total'] = $woocommerce->cart->get_cart_total();
 		$order_info['currency'] = get_woocommerce_currency();
-		
-		anytrack_for_woocommerce_send_endpoint_data( $initiate_checkout, $out_items, 'InitiateCheckout', 'is_checkout' );
 
-		
+		anytrack_for_woocommerce_send_endpoint_data($initiate_checkout, $out_items, 'InitiateCheckout', 'is_checkout');
 	}
 }
 
 /**
  * View single product
  */
-add_action( 'template_redirect', 'anytrack_for_woocommerce_view_product', 10  );
-function anytrack_for_woocommerce_view_product(  ){
+add_action('template_redirect', 'anytrack_for_woocommerce_view_product', 10);
+function anytrack_for_woocommerce_view_product()
+{
 	global $post;
 	$settings = get_option('waap_options');
 	$viewProduct = isset($settings['ViewContent']) ? $settings['ViewContent'] : '';
- 
-	if( is_product() ){
 
-		$product_info = anytrack_for_woocommerce_get_single_product_info( $post->ID );
+	if (is_product()) {
+
+		$product_info = anytrack_for_woocommerce_get_single_product_info($post->ID);
 
 		$items = [];
 		$items['items'][] = $product_info;
 
-		
-		anytrack_for_woocommerce_send_endpoint_data( $viewProduct, $items, 'ViewContent', 'is_product' );
 
-		
+		anytrack_for_woocommerce_send_endpoint_data($viewProduct, $items, 'ViewContent', 'is_product');
 	}
 }
 
 // order created hooks
-add_action( 'woocommerce_thankyou', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
-add_action( 'woocommerce_payment_complete', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1 );
-function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
-	$is_processed = get_post_meta( $order_id, '_anytrack_processed', true );
-	if ( $is_processed == '1' ){
+add_action('woocommerce_thankyou', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1);
+add_action('woocommerce_payment_complete', 'anytrack_for_woocommerce_woocommerce_new_order', 10, 1);
+function anytrack_for_woocommerce_woocommerce_new_order($order_id)
+{
+	$is_processed = get_post_meta($order_id, '_anytrack_processed', true);
+	if ($is_processed == '1') {
 		return false;
 	}
 
 	//$order_id = 3881;
-	$order = wc_get_order( $order_id );
+	$order = wc_get_order($order_id);
 	$settings = get_option('waap_options');
 	$purchase = isset($settings['purchase']) ? $settings['purchase'] : '';
 
@@ -126,11 +126,11 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 	$order_info['total_refunded'] = $order->get_total_refunded();
 
 	$all_inner_items = [];
-	foreach ( $order->get_items() as $item_id => $item ) {
+	foreach ($order->get_items() as $item_id => $item) {
 		$product_id = $item->get_product_id();
 		$variation_id = $item->get_variation_id();
 		$quantity = $item->get_quantity();
-		$all_inner_items[] = anytrack_for_woocommerce_get_single_product_info( $product_id, $quantity, $variation_id = 0 );
+		$all_inner_items[] = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id = 0);
 	}
 	$order_info['items'] = $all_inner_items;
 
@@ -170,9 +170,9 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
 
 	$order_info['status'] = $order->get_status();
 
-	anytrack_for_woocommerce_send_endpoint_data( $purchase, $order_info, 'Purchase', 'woocommerce_payment_complete' );
+	anytrack_for_woocommerce_send_endpoint_data($purchase, $order_info, 'Purchase', 'woocommerce_payment_complete');
 
-    update_post_meta( $order_id, '_anytrack_processed', '1' );
+	update_post_meta($order_id, '_anytrack_processed', '1');
 }
 
 
@@ -181,8 +181,7 @@ function anytrack_for_woocommerce_woocommerce_new_order( $order_id ){
  */
 add_action('woocommerce_new_order', function ($order_id) {
 	$at_cid = isset($_COOKIE['_atcid']) ? $_COOKIE['_atcid'] : '';
-	if( $at_cid && $at_cid != '' ){
-		update_post_meta( $order_id , '_atcid', $at_cid );
+	if ($at_cid && $at_cid != '') {
+		update_post_meta($order_id, '_atcid', $at_cid);
 	}
 }, 10, 1);
-?>
