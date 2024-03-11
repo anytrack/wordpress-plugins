@@ -83,11 +83,8 @@ function wpafw_checkout_action(){
 
 		$order_info['payment_method'] = $output['payment_method'];
  
-		anytrack_for_woocommerce_send_endpoint_data( $add_payment_info, $order_info, 'AddPaymentInfo', 'woocommerce_payment_complete' ); 
-	
-	 
-
-		echo json_encode([ 'result' => 'success' ]);
+		$isSent = anytrack_for_woocommerce_send_endpoint_data( $add_payment_info, $order_info, 'AddPaymentInfo', 'woocommerce_payment_complete' ); 
+		echo json_encode([ 'result' => $isSent ? 'success' : 'error' ]);
 	}
 	die();
 }
