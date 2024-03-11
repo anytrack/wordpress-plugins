@@ -12,50 +12,54 @@ Stable tag: 1.0.3
 //ini_set('display_errors', 'On');
 
 
-if ( ! defined( 'ABSPATH' ) ) {
-	wp_die( 'Direct Access is not Allowed' );
+if (!defined('ABSPATH')) {
+	wp_die('Direct Access is not Allowed');
 }
 
 // core initiation
 
-class aalmMainStart{
-		public $locale;
-		function __construct( $locale, $includes, $path ){
-			$this->locale = $locale;
-			
-			// include files
-			foreach( $includes as $single_path ){
-				include( $path.$single_path );				
-			}
-			// calling localization
-			add_action('plugins_loaded', array( $this, 'myplugin_init' ) );
+class aalmMainStart
+{
+	public $locale;
+	function __construct($locale, $includes, $path)
+	{
+		$this->locale = $locale;
 
-			register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
+		// include files
+		foreach ($includes as $single_path) {
+			include($path . $single_path);
 		}
+		// calling localization
+		add_action('plugins_loaded', array($this, 'myplugin_init'));
 
-		function plugin_activation(){
-			flush_rewrite_rules();
-		}
-		
-		function plugin_uninstall(){
-			 
-		}
+		register_activation_hook(__FILE__, array($this, 'plugin_activation'));
+	}
 
-		function myplugin_init() {
-		 	$plugin_dir = basename(dirname(__FILE__));
-		 	load_plugin_textdomain( $this->locale , false, $plugin_dir );
-		}
+	function plugin_activation()
+	{
+		flush_rewrite_rules();
+	}
+
+	function plugin_uninstall()
+	{
+	}
+
+	function myplugin_init()
+	{
+		$plugin_dir = basename(dirname(__FILE__));
+		load_plugin_textdomain($this->locale, false, $plugin_dir);
+	}
 }
 
 
- 
+
 
 
 // initiate main class
 
 $obj = new aalmMainStart('aalm', array(
 	'modules/formElementsClass.php',
-	
+
 	'modules/scripts.php',
 	'modules/meta_box.php',
 	'modules/ajax.php',
@@ -63,13 +67,4 @@ $obj = new aalmMainStart('aalm', array(
 	'modules/settings.php',
 	'modules/hooks.php',
 	'modules/functions.php',
-), dirname(__FILE__).'/' );
- 
- 
-
-
-
-
-
- 
-?>
+), dirname(__FILE__) . '/');
