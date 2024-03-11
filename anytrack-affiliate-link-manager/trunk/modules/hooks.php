@@ -1,7 +1,7 @@
 <?php
 // insertion of code to page
 add_Action('wp_head', function () {
-	$ANYTRACK_ASSETS_URL = isset($ANYTRACK_ASSETS_URL) ? $ANYTRACK_ASSETS_URL : 'https://assets.anytrack.io/';
+	$ANYTRACK_ASSETS_URL = defined('ANYTRACK_ASSETS_URL') ? ANYTRACK_ASSETS_URL : 'https://assets.anytrack.io/';
 
 	$setting = get_option('aalm_options');
 	$tracking_code = '

@@ -23,7 +23,7 @@ function anytrack_for_woocommerce_send_endpoint_data($action, $data, $fixedType,
 		return false;
 	}
 
-	$ANYTRACK_TRACKER_ENDPOINT = isset($ANYTRACK_TRACKER_ENDPOINT) ? $ANYTRACK_TRACKER_ENDPOINT : 'https://t1.anytrack.io/assets/';
+	$ANYTRACK_TRACKER_ENDPOINT = defined('ANYTRACK_TRACKER_ENDPOINT') ? ANYTRACK_TRACKER_ENDPOINT : 'https://t1.anytrack.io/assets/';
 	$endpoint_url = $ANYTRACK_TRACKER_ENDPOINT . esc_html($property_id) . '/collect/woocommerce';
 
 	// prepare data archive

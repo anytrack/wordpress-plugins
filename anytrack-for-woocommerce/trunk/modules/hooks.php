@@ -4,7 +4,7 @@
 add_filter('wp_head', 'anytrack_for_woocommerce_wp_head');
 function anytrack_for_woocommerce_wp_head()
 {
-	$ANYTRACK_ASSETS_URL = isset($ANYTRACK_ASSETS_URL) ? $ANYTRACK_ASSETS_URL : 'https://assets.anytrack.io/';
+	$ANYTRACK_ASSETS_URL = defined('ANYTRACK_ASSETS_URL') ? ANYTRACK_ASSETS_URL : 'https://assets.anytrack.io/';
 
 	$settings = get_option('waap_options');
 	$property_id = isset($settings['property_id']) ? $settings['property_id'] : '';
