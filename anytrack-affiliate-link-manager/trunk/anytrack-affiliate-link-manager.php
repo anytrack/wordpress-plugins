@@ -31,8 +31,6 @@ class aalmMainStart{
 			add_action('plugins_loaded', array( $this, 'myplugin_init' ) );
 
 			register_activation_hook( __FILE__, array( $this, 'plugin_activation' ) );
-			
-			register_uninstall_hook( __FILE__, array( $this, 'plugin_uninstall' ) );
 		}
 
 		function plugin_activation(){
