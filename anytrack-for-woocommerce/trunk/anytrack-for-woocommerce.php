@@ -5,7 +5,7 @@ Description: Connect with Google, Facebook, Bing, Taboola and Outbrain and sync 
 Version: 1.5.4
 Author: AnyTrack Ltd.
 Author URI: https://anytrack.io
-Stable tag: 1.5.2
+Stable tag: 1.5.4
 */
 
 //error_reporting(E_ALL);

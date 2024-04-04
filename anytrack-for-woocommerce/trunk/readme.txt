@@ -3,8 +3,8 @@ Contributors: moshest
 Donate link: https://anytrack.io/
 Tags: anytrack, woocommerce, e-commerce, conversions, checkout, facebook, google, pixel, bing, taboola, outbrain, tiktok, pinterest, twitter
 Requires at least: 4.7
-Tested up to: 6.2.2
-Stable tag: 1.5.2
+Tested up to: 6.5
+Stable tag: 1.5.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -36,7 +36,7 @@ With AnyTrack you can finally see — with unmatched clarity — everything that
 - Microsoft Advertising (formerly known as Bing Ads)
 - Taboola
 - Outbrain
-- Tiktok (soon)
+- Tiktok
 - Pinterest (soon)
 - Twitter (soon)
 
@@ -76,6 +76,10 @@ prefer on the pixel settings on AnyTrack.
 Initial version.
 
 == Changelog ==
+
+= 1.5.4 =
+* Send AddPaymentInfo event to get more granular checkout analytics
+* Minor bug fixes
 
 = 1.5.2 =
 * Add uninstall issue fix
