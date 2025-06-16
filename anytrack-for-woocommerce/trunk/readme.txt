@@ -3,7 +3,7 @@ Contributors: moshest
 Donate link: https://anytrack.io/
 Tags: anytrack, woocommerce, e-commerce, conversions, checkout, facebook, google, pixel, bing, taboola, outbrain, tiktok, pinterest, twitter
 Requires at least: 4.7
-Tested up to: 6.5
+Tested up to: 6.8.1
 Stable tag: 1.5.4
 Requires PHP: 7.0
 License: GPLv2 or later
@@ -76,6 +76,9 @@ prefer on the pixel settings on AnyTrack.
 Initial version.
 
 == Changelog ==
+
+= 1.5.5 =
+* Compatibility update
 
 = 1.5.4 =
 * Send AddPaymentInfo event to get more granular checkout analytics
