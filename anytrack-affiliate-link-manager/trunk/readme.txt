@@ -1,17 +1,15 @@
 === AnyTrack Affiliate Link Manager ===
 Contributors: moshest
 Donate link: https://anytrack.io/
-Tags: anytrack, redirect, redirection, affiliate, affiliate links, affiliate link management, affiliate tracking, partnerize, hasoffers, cj affiliates
+Tags: affiliate, affiliate links, affiliate tracking, partnerize, hasoffers
 Requires at least: 4.7
 Tested up to: 6.8.1
-Stable tag: 1.0.4
+Stable tag: 1.5.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-AnyTrack is a conversion data platform that enables performance marketers to track, and sync
-conversions from affiliate networks, eCommerce platforms, CRM and API's, with Google Analytics,
-Facebook Conversion API, Taboola, Bing and Outbrain.
+AnyTrack is a conversion data platform for performance marketers to track affiliate conversions with Google Analytics, Facebook Conversion API, and more.
 
 == Description ==
 
