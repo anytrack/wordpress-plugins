@@ -33,4 +33,5 @@ svn/
 .idea
 
 # ignore release files
-*.zip
+scripts/
+releases/
