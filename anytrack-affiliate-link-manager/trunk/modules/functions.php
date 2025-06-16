@@ -73,8 +73,8 @@ function aalm_gnerate_palceholder(){
 	$new_content = str_replace( '41726', $new_id, $data_block );
 	$new_content = str_replace( '%url%', admin_url(), $new_content );
  
-	$url = admin_url('post.php?post='.$new_id.'&action=trash&custom_delete=1');
-	$delete_link = wp_nonce_url( $url );
+	$url = admin_url('admin.php?post='.$new_id.'&custom_delete=1');
+	$delete_link = wp_nonce_url( $url, 'delete_custom_redirect_' . $new_id );
 
 	$new_content = str_replace( '%delete%', $delete_link, $new_content );
 

@@ -42,9 +42,45 @@ function aalm_column_custom_ordering($query)
 // redirect processing
 add_action('init', function () {
 
-
 	if (isset($_GET['custom_delete'])) {
-		wp_delete_post($_GET['post'], true);
+		// Security checks to prevent unauthorized post deletion
+		if (!is_admin() || !is_user_logged_in()) {
+			wp_die(__('Access denied. You must be logged in and have administrator access.', 'aalm'));
+		}
+		
+		// Check user capabilities
+		if (!current_user_can('delete_posts')) {
+			wp_die(__('Access denied. You do not have permission to delete posts.', 'aalm'));
+		}
+		
+		// Verify nonce for CSRF protection
+		if (!isset($_GET['_wpnonce']) || !wp_verify_nonce($_GET['_wpnonce'], 'delete_custom_redirect_' . intval($_GET['post']))) {
+			wp_die(__('Security check failed. Invalid nonce.', 'aalm'));
+		}
+		
+		// Validate and sanitize post ID
+		$post_id = intval($_GET['post']);
+		if ($post_id <= 0) {
+			wp_die(__('Invalid post ID.', 'aalm'));
+		}
+		
+		// Verify the post exists and is of the correct type
+		$post_to_delete = get_post($post_id);
+		if (!$post_to_delete || $post_to_delete->post_type !== 'custom_redirect') {
+			wp_die(__('Post not found or invalid post type.', 'aalm'));
+		}
+		
+		// Check if current user can delete this specific post
+		if (!current_user_can('delete_post', $post_id)) {
+			wp_die(__('Access denied. You do not have permission to delete this post.', 'aalm'));
+		}
+		
+		// Perform the deletion
+		$deleted = wp_delete_post($post_id, true);
+		if (!$deleted) {
+			wp_die(__('Failed to delete the post.', 'aalm'));
+		}
+		
 		wp_redirect(admin_url('edit.php?post_type=custom_redirect'), 302);
 		die();
 	}
