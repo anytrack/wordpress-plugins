@@ -47,7 +47,7 @@ class anytrack_for_woocommerce_MainStart
             ];
             update_option('waap_options', $inital_values);
         }
-        
+
     }
 
     public function plugin_uninstall()

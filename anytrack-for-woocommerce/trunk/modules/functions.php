@@ -52,7 +52,7 @@ function anytrack_for_woocommerce_send_endpoint_data($action, $data, $fixedType,
 }
 
 
-function anytrack_for_woocommerce_get_single_product_info($product_id, $qty = 0, $variation_id = 0)
+function anytrack_for_woocommerce_get_single_product_info($product_id, $qty = 0, $variation_id = 0, $total_tax = 0, $subtotal = 0, $total = 0)
 {
 
 	$total_variations = '';
@@ -99,8 +99,59 @@ function anytrack_for_woocommerce_get_single_product_info($product_id, $qty = 0,
 	$product_info['tags'] = $all_product_tags_output;
 	$product_info['attributes'] = $variation_variations;
 	$product_info['currency'] = get_woocommerce_currency();
-
-
+    $product_info['total_tax'] = $total_tax;
+    $product_info['subtotal'] = $subtotal;
+    $product_info['total'] = $total;
 
 	return $product_info;
+}
+
+
+function anytrack_for_woocommerce_enrich_with_order_billing_shipping_info($order_info, $order)
+{
+    //billing
+    $order_info['customer_id'] = $order->get_customer_id();
+    $order_info['user_id'] = $order->get_user_id();
+    $order_info['customer_ip_address'] = $order->get_customer_ip_address();
+    $order_info['customer_user_agent'] = $order->get_customer_user_agent();
+    $order_info['customer_note'] = $order->get_customer_note();
+    //$order_info['address_prop'] = $order->get_address_prop();
+    $order_info['billing_first_name'] = $order->get_billing_first_name();
+    $order_info['billing_last_name'] = $order->get_billing_last_name();
+    $order_info['billing_company'] = $order->get_billing_company();
+    $order_info['billing_address_1'] = $order->get_billing_address_1();
+    $order_info['billing_address_2'] = $order->get_billing_address_2();
+    $order_info['billing_city'] = $order->get_billing_city();
+    $order_info['billing_state'] = $order->get_billing_state();
+    $order_info['billing_postcode'] = $order->get_billing_postcode();
+    $order_info['billing_country'] = $order->get_billing_country();
+    $order_info['billing_email'] = $order->get_billing_email();
+    $order_info['billing_phone'] = $order->get_billing_phone();
+
+    // shipping
+    $order_info['shipping_first_name'] = $order->get_shipping_first_name();
+    $order_info['shipping_last_name'] = $order->get_shipping_last_name();
+    $order_info['shipping_company'] = $order->get_shipping_company();
+    $order_info['shipping_address_1'] = $order->get_shipping_address_1();
+    $order_info['shipping_address_2'] = $order->get_shipping_address_2();
+    $order_info['shipping_city'] = $order->get_shipping_city();
+    $order_info['shipping_state'] = $order->get_shipping_state();
+    $order_info['shipping_postcode'] = $order->get_shipping_postcode();
+    $order_info['shipping_country'] = $order->get_shipping_country();
+
+    return $order_info;
+}
+
+function anytrack_for_woocommerce_enrich_with_order_basics($order_info, $order)
+{
+    $order_info['ID'] = $order->get_id();
+    $order_info['order_key'] = $order->get_order_key();
+
+    $order_info['payment_method'] = $order->get_payment_method();
+    $order_info['payment_method_title'] = $order->get_payment_method_title();
+    $order_info['transaction_id'] = $order->get_transaction_id();
+
+    $order_info['status'] = $order->get_status();
+
+    return $order_info;
 }
