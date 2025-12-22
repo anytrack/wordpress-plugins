@@ -100,8 +100,19 @@ function anytrack_for_woocommerce_woocommerce_new_order($order_id)
 
     //$order_id = 3881;
     $order = wc_get_order($order_id);
+
     $settings = get_option('waap_options');
     $purchase = isset($settings['purchase']) ? $settings['purchase'] : '';
+
+    $is_upstroke = $order->get_created_via() == 'upstroke';
+    $does_have_primary_order = get_post_meta($order_id, '_wfocu_primary_order', true);
+    $is_upsell_order_created = $does_have_primary_order && $is_upstroke;
+    if ($is_upsell_order_created) {
+        $purchase = isset($settings['fk_upsell']) ? $settings['fk_upsell'] : '';
+        if (!$purchase) {
+            return false;
+        }
+    }
 
     $order_info = [];
 
