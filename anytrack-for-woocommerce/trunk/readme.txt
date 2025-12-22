@@ -1,10 +1,10 @@
 === AnyTrack for WooCommerce ===
 Contributors: moshest
 Donate link: https://anytrack.io/
-Tags: woocommerce, e-commerce, conversions, facebook, google
+Tags: woocommerce, e-commerce, conversions, facebook, google, funnelkit
 Requires at least: 4.7
 Tested up to: 6.8.1
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,6 +49,7 @@ With AnyTrack you can finally see — with unmatched clarity — everything that
 - See what's your best campaigns and ad sets
 - Receive webhooks every time you have a conversion
 - View and export all your data
+- Track FunnelKit funnels including the upsells and the order bumps
 
 
 == Frequently Asked Questions ==
@@ -76,6 +77,10 @@ prefer on the pixel settings on AnyTrack.
 Initial version.
 
 == Changelog ==
+
+= 1.5.6 =
+* Add FunnelKit Upsell tracking
+* New event mapping (Upsell) for FunnelKit upsells
 
 = 1.5.5 =
 * Compatibility update
