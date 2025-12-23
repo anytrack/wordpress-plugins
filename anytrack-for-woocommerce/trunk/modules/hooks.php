@@ -103,12 +103,14 @@ function anytrack_for_woocommerce_woocommerce_new_order($order_id)
 
     $settings = get_option('waap_options');
     $purchase = isset($settings['purchase']) ? $settings['purchase'] : '';
+    $fixed_type = 'Purchase';
 
     $is_upstroke = $order->get_created_via() == 'upstroke';
     $does_have_primary_order = get_post_meta($order_id, '_wfocu_primary_order', true);
     $is_upsell_order_created = $does_have_primary_order && $is_upstroke;
     if ($is_upsell_order_created) {
         $purchase = isset($settings['fk_upsell']) ? $settings['fk_upsell'] : '';
+        $fixed_type = 'Upsell';
         if (!$purchase) {
             return false;
         }
@@ -145,7 +147,7 @@ function anytrack_for_woocommerce_woocommerce_new_order($order_id)
     anytrack_for_woocommerce_enrich_with_order_basics($order_info, $order);
     anytrack_for_woocommerce_enrich_with_order_billing_shipping_info($order_info, $order);
 
-    anytrack_for_woocommerce_send_endpoint_data($purchase, $order_info, 'Purchase', 'woocommerce_payment_complete');
+    anytrack_for_woocommerce_send_endpoint_data($purchase, $order_info, $fixed_type, 'woocommerce_payment_complete');
 
     update_post_meta($order_id, '_anytrack_processed', '1');
 }
