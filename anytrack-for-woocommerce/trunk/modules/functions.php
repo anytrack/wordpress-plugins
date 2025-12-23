@@ -107,7 +107,7 @@ function anytrack_for_woocommerce_get_single_product_info($product_id, $qty = 0,
 }
 
 
-function anytrack_for_woocommerce_enrich_with_order_billing_shipping_info($order_info, $order)
+function anytrack_for_woocommerce_enrich_with_order_billing_shipping_info(&$order_info, $order)
 {
     //billing
     $order_info['customer_id'] = $order->get_customer_id();
@@ -142,7 +142,7 @@ function anytrack_for_woocommerce_enrich_with_order_billing_shipping_info($order
     return $order_info;
 }
 
-function anytrack_for_woocommerce_enrich_with_order_basics($order_info, $order)
+function anytrack_for_woocommerce_enrich_with_order_basics(&$order_info, $order)
 {
     $order_info['ID'] = $order->get_id();
     $order_info['order_key'] = $order->get_order_key();
