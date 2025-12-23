@@ -1,15 +1,15 @@
-<?php 
+<?php
 
- 
+
 class anytrack_for_woocommerce_SettingsClassV2{
 	/* V1.0.1 */
 	var $setttings_parameters;
 	var $settings_prefix;
 	var $message;
-	
+
 	function __construct( $prefix ){
-		$this->setttings_prefix = $prefix;	
-		
+		$this->setttings_prefix = $prefix;
+
 		if( isset($_POST[$this->setttings_prefix.'save_settings_field']) ){
 			if(  wp_verify_nonce($_POST[$this->setttings_prefix.'save_settings_field'], $this->setttings_prefix.'save_settings_action') ){
 				$options = array();
@@ -17,30 +17,30 @@ class anytrack_for_woocommerce_SettingsClassV2{
 					$options[$key] = trim( sanitize_text_field( $value ) );
 				}
 				update_option( $this->setttings_prefix.'_options', $options );
-				
+
 				$this->message = '<div class="alert alert-success">'.__('Settings saved', $this->setttings_prefix ).'</div>';
-				
+
 			}
 		}
-		
-		
+
+
 	}
-	
+
 	function get_setting( $setting_name ){
 		$inner_option = get_option( $this->setttings_prefix.'_options');
 		return $inner_option[$setting_name];
 	}
-	
+
 	function create_menu( $parameters ){
-		$this->setttings_parameters = $parameters;		
-			
+		$this->setttings_parameters = $parameters;
+
 		add_action('admin_menu', array( $this, 'add_menu_item'), 100000 );
-		
+
 	}
-	
-	 
-	
-	
+
+
+
+
 	function add_menu_item(){
 
 		$default_array = [
@@ -53,97 +53,97 @@ class anytrack_for_woocommerce_SettingsClassV2{
 			'capability' => '',
 			'menu_slug' => '',
 			'icon' => ''
-		];	
+		];
 		$this->setttings_parameters = array_merge( $default_array, $this->setttings_parameters );
-		
+
 		foreach( $this->setttings_parameters as $single_option ){
 			if( !isset( $single_option['type'] ) ){ continue; }
 			if( $single_option['type'] == 'menu' ){
-				add_menu_page(  			 
-				$single_option['page_title'], 
-				$single_option['menu_title'], 
-				$single_option['capability'], 
-				$this->setttings_prefix.$single_option['menu_slug'], 
+				add_menu_page(
+				$single_option['page_title'],
+				$single_option['menu_title'],
+				$single_option['capability'],
+				$this->setttings_prefix.$single_option['menu_slug'],
 				array( $this, 'show_settings' ),
 				$single_option['icon']
 				);
 			}
 			if( $single_option['type'] == 'submenu' ){
-				add_submenu_page(  
-				$single_option['parent_slug'],  
-				$single_option['page_title'], 
-				$single_option['menu_title'], 
-				$single_option['capability'], 
-				$this->setttings_prefix.$single_option['menu_slug'], 
+				add_submenu_page(
+				$single_option['parent_slug'],
+				$single_option['page_title'],
+				$single_option['menu_title'],
+				$single_option['capability'],
+				$this->setttings_prefix.$single_option['menu_slug'],
 				array( $this, 'show_settings' ),
 				1000
 				);
 			}
 			if( $single_option['type'] == 'option' ){
-				add_options_page(  				  
-				$single_option['page_title'], 
-				$single_option['menu_title'], 
-				$single_option['capability'], 
-				$this->setttings_prefix.$single_option['menu_slug'], 
-				array( $this, 'show_settings' ) 
+				add_options_page(
+				$single_option['page_title'],
+				$single_option['menu_title'],
+				$single_option['capability'],
+				$this->setttings_prefix.$single_option['menu_slug'],
+				array( $this, 'show_settings' )
 				);
 			}
 		}
-		 
+
 	}
-	
+
 	function show_settings(){
 		// hide output if its parent menu
 		if( count( $this->setttings_parameters[0]['parameters'] ) == 0 ){ return false; }
-		
+
 		?>
 		<div class="wrap tw-bs4">
-		
-		
-		
-	 
-		
-		
+
+
+
+
+
+
 		<?php if( $this->setttings_parameters[0]['is_form'] ): ?>
 			<form class="form-horizontal" method="post" action="">
 		<?php endif; ?>
 
-		<?php 
-		wp_nonce_field( $this->setttings_prefix.'save_settings_action', $this->setttings_prefix.'save_settings_field'  );  
-		$config = get_option( $this->setttings_prefix.'_options'); 
-		 
-		?>  
+		<?php
+		wp_nonce_field( $this->setttings_prefix.'save_settings_action', $this->setttings_prefix.'save_settings_field'  );
+		$config = get_option( $this->setttings_prefix.'_options');
+
+		?>
 		<fieldset>
 
-			<?php 
+			<?php
 			$cnt = 0;
-			foreach( $this->setttings_parameters as $single_page ){	
+			foreach( $this->setttings_parameters as $single_page ){
 			if( !isset($single_page['parameters']) ){ continue; }
-				foreach( $single_page['parameters'] as $key=>$value ){	
-					
+				foreach( $single_page['parameters'] as $key=>$value ){
+
 					$interface_element_value =  '';
 					if( isset($value['name']) ){
 						if( isset( $config[$value['name']] ) ){
 							$interface_element_value =  $config[$value['name']];
 						}
 					}
-					
+
 					if( $cnt == 1 ){
 						echo $this->message;
 					}
-					
+
 
 					$interface_element = new anytrack_for_woocommerce_formElementsClass( $value['type'], $value, $interface_element_value );
-					echo $interface_element->get_code();	 
+					echo $interface_element->get_code();
 
-		
-					
+
+
 					$cnt++;
 				}
 			}
 			?>
-		</fieldset>  
-		
+		</fieldset>
+
 		<?php if( $this->setttings_parameters[0]['is_form'] ): ?>
 		</form>
 		<?php endif; ?>
@@ -151,22 +151,22 @@ class anytrack_for_woocommerce_SettingsClassV2{
 		</div>
 		<?php
 	}
-}	
+}
 
- 
-	
-	
+
+
+
 add_Action('init',  function (){
 
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 		return;
-	
+
 	if ( defined('DOING_AJAX') && DOING_AJAX ) {
 		return;
 	}
 
 	$locale = 'waap';
-	$config_big = 
+	$config_big =
 	array(
 		array(
 			'type' => 'submenu',
@@ -228,8 +228,8 @@ add_Action('init',  function (){
 					'class' => ''
 				),
 
-				
-				
+
+
 				array(
 					'type' => 'text',
 					'title' => __('View Content',$locale),
@@ -280,25 +280,35 @@ add_Action('init',  function (){
 					'id' => '',
 					'class' => ''
 				),
-				
+				array(
+					'type' => 'text',
+					'title' => __('Upsell (FunnelKit only)',$locale),
+					'name' => 'fk_upsell',
+					'sub_text' => __('', $locale),
+					'style' => ' ',
+					'placeholder' => 'Upsell',
+					'id' => '',
+					'class' => ''
+				),
+
 
 
 				array(
 					'type' => 'save',
 					'title' => __('Save changes', $locale),
 				),
-				
-				 
+
+
 			)
 		)
-	); 
+	);
 	global $settings;
 
-	$settings = new anytrack_for_woocommerce_SettingsClassV2( $locale ); 
+	$settings = new anytrack_for_woocommerce_SettingsClassV2( $locale );
 	$settings->create_menu(  $config_big   );
-	
+
 } );
-	
- 
+
+
 
 ?>
