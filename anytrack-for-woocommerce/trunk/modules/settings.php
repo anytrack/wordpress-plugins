@@ -238,7 +238,8 @@ add_Action('init',  function (){
 					'style' => ' ',
 					'placeholder' => 'ViewContent',
 					'id' => '',
-					'class' => ''
+					'class' => '',
+                    'disabled' => true
 				),
 				array(
 					'type' => 'text',
@@ -248,7 +249,8 @@ add_Action('init',  function (){
 					'style' => ' ',
 					'placeholder' => 'AddToCart',
 					'id' => '',
-					'class' => ''
+					'class' => '',
+                    'disabled' => true
 				),
 				array(
 					'type' => 'text',
@@ -258,7 +260,8 @@ add_Action('init',  function (){
 					'style' => ' ',
 					'placeholder' => 'InitiateCheckout',
 					'id' => '',
-					'class' => ''
+					'class' => '',
+                    'disabled' => true
 				),
 				array(
 					'type' => 'text',
@@ -268,7 +271,8 @@ add_Action('init',  function (){
 					'style' => ' ',
 					'placeholder' => 'AddPaymentInfo',
 					'id' => '',
-					'class' => ''
+					'class' => '',
+					'disabled' => true
 				),
 				array(
 					'type' => 'text',
@@ -278,7 +282,8 @@ add_Action('init',  function (){
 					'style' => ' ',
 					'placeholder' => 'Purchase',
 					'id' => '',
-					'class' => ''
+					'class' => '',
+					'disabled' => true
 				),
 				array(
 					'type' => 'text',
@@ -288,7 +293,8 @@ add_Action('init',  function (){
 					'style' => ' ',
 					'placeholder' => 'Upsell',
 					'id' => '',
-					'class' => ''
+					'class' => '',
+					'disabled' => false
 				),
 
 

@@ -27,6 +27,7 @@
 				'style' => '',
 				'upload_text' => '',
 				'placeholder' => '',
+				'disabled' => false,
 			];	
 			$this->parameters = array_merge( $default_array, $this->parameters );
 			$this->value = $value;
@@ -123,7 +124,7 @@
 								
 							 '.( $this->parameters['sub_text'] && $this->parameters['sub_text'] != '' ? '<i qtip-content="'.htmlentities( $this->parameters['sub_text'] ).'" class="fa ml-15 qtip_picker fs-16 fa-question-circle " aria-hidden="true"></i>' : '' ).'
 								
-								<input type="text"  class="form-control is_small '.$this->parameters['class'].'"  name="'.$this->parameters['name'].'" id="'.$this->parameters['id'].'" placeholder="'.$this->parameters['placeholder'].'" value="'.( $this->value && $this->value != '' ? esc_html( stripslashes( $this->value ) ) : $this->parameters['default'] ).'"> 
+								<input type="text"  class="form-control is_small '.$this->parameters['class'].'"  name="'.$this->parameters['name'].'" id="'.$this->parameters['id'].'" placeholder="'.$this->parameters['placeholder'].'" value="'.( $this->value && $this->value != '' ? esc_html( stripslashes( $this->value ) ) : $this->parameters['default'] ).'" '.( $this->parameters['disabled'] ? 'disabled' : '' ).'>
 							 
 							</div>
 						</div>
