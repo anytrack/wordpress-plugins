@@ -77,6 +77,8 @@ prefer on the pixel settings on AnyTrack.
 Initial version.
 
 == Changelog ==
+= 1.5.7 =
+* Restrict the event mapping to the default standards
 
 = 1.5.6 =
 * Add FunnelKit Upsell tracking
