@@ -1,6 +1,5 @@
 <?php
 
-
 class anytrack_for_woocommerce_SettingsClassV2{
 	/* V1.0.1 */
 	var $setttings_parameters;
@@ -16,6 +15,14 @@ class anytrack_for_woocommerce_SettingsClassV2{
 				foreach( $_POST as $key=>$value ){
 					$options[$key] = trim( sanitize_text_field( $value ) );
 				}
+
+				// Validate before saving
+				$validation_result = $this->validateSave( $options );
+				if( $validation_result !== true ){
+					$this->message = '<div class="alert alert-danger">' . $validation_result . '</div>';
+					return;
+				}
+
 				update_option( $this->setttings_prefix.'_options', $options );
 
 				$this->message = '<div class="alert alert-success">'.__('Settings saved', $this->setttings_prefix ).'</div>';
@@ -24,6 +31,84 @@ class anytrack_for_woocommerce_SettingsClassV2{
 		}
 
 
+	}
+
+	function getWooCommerceIntegrationErrorMessage(){
+		return __('Please install the WooCommerce integration through <a href="https://dashboard.anytrack.io/catalog/woocommerce" target="_blank">AnyTrack integrations catalog</a>', $this->setttings_prefix );
+	}
+
+	function validateSave( $options ){
+		// Check if property_id exists and is exactly 12 characters
+		if( !isset( $options['property_id'] ) || empty( $options['property_id'] ) ){
+			return __('Property ID is required', $this->setttings_prefix );
+		}
+
+		$property_id = $options['property_id'];
+		if( strlen( $property_id ) !== 12 ){
+			return __('Property ID must be exactly 12 characters', $this->setttings_prefix );
+		}
+
+		// Make API request to validate the property
+        $ANYTRACK_TRACKER_ENDPOINT = defined('ANYTRACK_TRACKER_ENDPOINT') ? ANYTRACK_TRACKER_ENDPOINT : 'https://t1.anytrack.io/assets/';
+		$api_url = rtrim( $ANYTRACK_TRACKER_ENDPOINT, '/' ) . '/' . $property_id . '.js';
+
+		$response = wp_remote_get( $api_url, array(
+			'timeout' => 15,
+			'headers' => array(
+				'Accept' => 'application/javascript'
+			)
+		) );
+
+		if( is_wp_error( $response ) ){
+			return __('Failed to validate Property ID: ' . $response->get_error_message(), $this->setttings_prefix );
+		}
+
+		$body = wp_remote_retrieve_body( $response );
+		$response_code = wp_remote_retrieve_response_code( $response );
+
+		if( $response_code !== 200 ){
+			return __('Invalid Property ID: Unable to retrieve tracking script', $this->setttings_prefix );
+		}
+
+		// Parse JavaScript to check for WooCommerce integration
+		// Extract the last JSON object passed to AnyTrack function (the configuration)
+		if( preg_match('/AnyTrack["\']?\s*,\s*(\{.+\})\s*\)\s*;?\s*$/s', $body, $matches) ){
+			$config_str = $matches[1];
+
+			// The config is already valid JSON in the response
+			$config = json_decode( $config_str, true );
+
+			if( json_last_error() === JSON_ERROR_NONE ){
+				// Successfully parsed JSON, check for ig field
+				if( !isset( $config['ig'] ) || !is_array( $config['ig'] ) ){
+					return $this->getWooCommerceIntegrationErrorMessage();
+				}
+
+				// Check if woocommerce integration exists
+				$has_woocommerce = false;
+				foreach( $config['ig'] as $integration ){
+					if( isset( $integration['akid'] ) && $integration['akid'] === 'woocommerce' ){
+						$has_woocommerce = true;
+						break;
+					}
+				}
+
+				if( !$has_woocommerce ){
+					return $this->getWooCommerceIntegrationErrorMessage();
+				}
+
+				return true; // Valid - WooCommerce integration found
+			}
+		}
+
+		// Fallback: If JSON parsing fails, use simpler regex search
+		// This handles cases where the JS structure is different
+		if( preg_match('/"ig"\s*:\s*\[/s', $body) && preg_match('/"akid"\s*:\s*"woocommerce"/s', $body) ){
+			return true; // Valid - found both ig array and woocommerce akid
+		}
+
+		// Could not validate WooCommerce integration
+		return $this->getWooCommerceIntegrationErrorMessage();
 	}
 
 	function get_setting( $setting_name ){
