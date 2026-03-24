@@ -37,6 +37,30 @@ class anytrack_for_woocommerce_SettingsClassV2{
 		return __('Please install the WooCommerce integration through <a href="https://dashboard.anytrack.io/catalog/woocommerce" target="_blank">AnyTrack integrations catalog</a>', $this->setttings_prefix );
 	}
 
+	function getInvalidPropertyIdErrorMessage(){
+		return __('Invalid Property ID: Property does not exist', $this->setttings_prefix );
+	}
+
+	function isInvalidPropertyIdResponse( $body, $property_id ){
+		if( empty( $body ) ){
+			return false;
+		}
+
+		$property_id_pattern = preg_quote( $property_id, '/' );
+		$invalid_property_patterns = array(
+			'/Property\s+["\']?' . $property_id_pattern . '["\']?\s+(not exists anymore|does not exist|not found)/i',
+			'/console\.error\s*\(\s*["\'][^"\']*(not exists anymore|does not exist|not found)[^"\']*["\']\s*\)/i'
+		);
+
+		foreach( $invalid_property_patterns as $pattern ){
+			if( preg_match( $pattern, $body ) ){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	function validateSave( $options ){
 		// Check if property_id exists and is exactly 12 characters
 		if( !isset( $options['property_id'] ) || empty( $options['property_id'] ) ){
@@ -68,6 +92,10 @@ class anytrack_for_woocommerce_SettingsClassV2{
 
 		if( $response_code !== 200 ){
 			return __('Invalid Property ID: Unable to retrieve tracking script', $this->setttings_prefix );
+		}
+
+		if( $this->isInvalidPropertyIdResponse( $body, $property_id ) ){
+			return $this->getInvalidPropertyIdErrorMessage();
 		}
 
 		// Parse JavaScript to check for WooCommerce integration
