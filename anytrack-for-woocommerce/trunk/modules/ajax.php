@@ -10,7 +10,7 @@ function wpafw_checkout_action()
 	if (check_ajax_referer('ajax_call_nonce', 'security')) {
 
 		$settings = get_option('waap_options');
-		$add_payment_info = isset($settings['add_payment_info']) ? $settings['add_payment_info'] : '';
+		$add_payment_info = isset($settings['add_payment_info']) ? $settings['add_payment_info'] : 'AddPaymentInfo';
 
 
 

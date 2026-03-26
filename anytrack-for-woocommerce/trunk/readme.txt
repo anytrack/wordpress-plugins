@@ -4,7 +4,7 @@ Donate link: https://anytrack.io/
 Tags: woocommerce, e-commerce, conversions, facebook, google, funnelkit
 Requires at least: 4.7
 Tested up to: 6.8.1
-Stable tag: 1.5.8
+Stable tag: 1.5.9
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -77,6 +77,9 @@ prefer on the pixel settings on AnyTrack.
 Initial version.
 
 == Changelog ==
+= 1.5.9 =
+* Standard event names
+
 = 1.5.8 =
 * Add property id validation
 

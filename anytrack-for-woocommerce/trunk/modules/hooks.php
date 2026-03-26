@@ -23,7 +23,7 @@ add_action('woocommerce_add_to_cart', 'anytrack_for_woocommerce_woocommerce_add_
 function anytrack_for_woocommerce_woocommerce_add_to_cart($cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data)
 {
     $settings = get_option('waap_options');
-    $add_to_cart = isset($settings['add_to_cart']) ? $settings['add_to_cart'] : '';
+    $add_to_cart = isset($settings['add_to_cart']) ? $settings['add_to_cart'] : 'AddToCart';
 
     $product_info = anytrack_for_woocommerce_get_single_product_info($product_id, $quantity, $variation_id);
     $items = [];
@@ -37,7 +37,7 @@ add_action('template_redirect', 'anytrack_for_woocommerce_template_redirect', 10
 function anytrack_for_woocommerce_template_redirect()
 {
     $settings = get_option('waap_options');
-    $initiate_checkout = isset($settings['initiate_checkout']) ? $settings['initiate_checkout'] : '';
+    $initiate_checkout = isset($settings['initiate_checkout']) ? $settings['initiate_checkout'] : 'InitiateCheckout';
 
     if (is_checkout() && !isset($_GET['key'])) {
 
@@ -74,7 +74,7 @@ function anytrack_for_woocommerce_view_product()
 {
     global $post;
     $settings = get_option('waap_options');
-    $viewProduct = isset($settings['ViewContent']) ? $settings['ViewContent'] : '';
+    $viewProduct = isset($settings['ViewContent']) ? $settings['ViewContent'] : 'ViewContent';
 
     if (is_product()) {
 
@@ -102,7 +102,7 @@ function anytrack_for_woocommerce_woocommerce_new_order($order_id)
     $order = wc_get_order($order_id);
 
     $settings = get_option('waap_options');
-    $purchase = isset($settings['purchase']) ? $settings['purchase'] : '';
+    $purchase = isset($settings['purchase']) ? $settings['purchase'] : 'Purchase';
     $fixed_type = 'Purchase';
 
     $is_upstroke = $order->get_created_via() == 'upstroke';
