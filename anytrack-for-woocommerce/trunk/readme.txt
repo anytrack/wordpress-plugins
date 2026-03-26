@@ -78,6 +78,9 @@ Initial version.
 
 == Changelog ==
 = 1.5.9 =
+* Standard event names
+
+= 1.5.8 =
 * Add property id validation
 
 = 1.5.7 =
