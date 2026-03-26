@@ -41,10 +41,8 @@ class anytrack_for_woocommerce_MainStart
 
         if( !get_option('waap_options') ){
             $inital_values = [
-                'ViewContent' => 'ViewContent',
                 'add_to_cart' => 'AddToCart',
                 'initiate_checkout' => 'InitiateCheckout',
-                'add_payment_info' => 'AddPaymentInfo',
                 'purchase' => 'Purchase',
             ];
             update_option('waap_options', $inital_values);
